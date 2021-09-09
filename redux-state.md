@@ -38,6 +38,7 @@
          "Incorrect username/password combination",
          "Not enough balance to execute buy trade",
          "Not enough shares to execute sell trade",
-         "Cannot delete a portfolio with stocks in it"
+         "Cannot delete a portfolio with stocks in it",
+         "Ticker does not exist"
       ]
 }
