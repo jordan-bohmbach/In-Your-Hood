@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react"
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-const finnhub = require('finnhub');
 
 const SearchBar = () => {
     const [searchVal, setSearchVal] = useState('')
