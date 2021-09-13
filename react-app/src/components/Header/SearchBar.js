@@ -29,10 +29,10 @@ const SearchBar = () => {
                 value={searchVal}
                 placeholder="Search..."
                 />
-                <ul>
+                <ul className='search__results'>
                     {searchResults.map((result) => (
-                        <li>
-                            <Link to={`/stock/${result.split(":")[1].split('.')[0]}`}>
+                        <li className='result'>
+                            <Link  className='result__link'to={`/stock/${result.split(":")[1].split('.')[0]}`}>
                                 {result} = {result.split(":")[1].split('.')[0]}
                             </Link>
                         </li>
