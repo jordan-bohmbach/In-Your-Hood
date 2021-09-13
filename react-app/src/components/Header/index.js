@@ -1,14 +1,16 @@
 import './Header.css'
+import SearchBar from './SearchBar'
 
 function Header(){
 
 
     return(
         <div className='header'>
-            <h1> header </h1>
+            
             <div className='logo'></div>
             
             <div className='head__search-bar'>
+                <SearchBar />
                 
             </div>
 

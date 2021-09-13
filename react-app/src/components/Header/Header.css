@@ -1,5 +1,38 @@
+.header{
+    height: 100px;
+    width: 90%;
+    /* border: 3px solid red; */
+    margin-left: 80px; 
+    background-color:white;
+    border-radius:30px;
+}
+
 .logo{
-    height:100px;
+    height:70px;
     width: 200px;
-    border: 3px solidblue 
+    border: 3px solid blue; 
+    margin-top:20px;
+    margin-left:10px;
+    position:absolute;
+    
+}
+
+.head__search-bar{
+    /* border:3px solid purple; */
+    position:absolute;
+    left:16%;
+    height:80px;
+    width:35%;
+    top:20px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.search__input-bar{
+    width:80%;
+    height:30px;
+    font-size: 20px;
+    border-radius: 30px;
 }
