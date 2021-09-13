@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import ArticleTile from "./ArticleTile"
+import ArticleTile from './NewsFeed/ArticleTile'
 
 const NewsFeed = () => {
 
