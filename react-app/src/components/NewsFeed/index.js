@@ -17,11 +17,13 @@ const NewsFeed = () => {
             .then((res)=>setGeneralNews(res))
     }
 
+    console.log(generalNews)
     return(
         <>
-            <h1>Hello from the News Feed Tile</h1>
             {generalNews.map(article => (
+
                 <ArticleTile article={article} key={article.id}></ArticleTile>
+            
             ))}
         </>
     )
