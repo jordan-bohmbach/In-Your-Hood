@@ -1,0 +1,22 @@
+.chart{
+   border: 3px solid purple;
+   width: fit-content;
+   margin-left: 250px;
+}
+
+
+.stock__information{
+    border:3px solid red; 
+    width:60%;
+    height:2000px;
+    margin-left:200px;
+    margin-top:100px;
+}
+
+
+.chart__label{
+    margin-top:50px;
+    margin-bottom:50px;
+    margin-left: 700px;
+    
+}
