@@ -9,7 +9,7 @@ import SearchBar from './components/Header/SearchBar';
 // import NewsFeed from './components/NewsFeed';
 import StockChart from './components/AssetDetails/StockChart';
 
-import GeneralNewsFeed from './components/GeneralNewsFeed';
+// import GeneralNewsFeed from './components/GeneralNewsFeed';
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -19,7 +19,7 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
 import { authenticate } from './store/session';
-import IndividualStockNews from './components/IndividualStockNews';
+// import IndividualStockNews from './components/IndividualStockNews';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -54,8 +54,10 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/stock/:ticker' exact={true}>
-          <StockChart />
-          <IndividualStockNews />
+          <AssetDetails />
+          {/* <StockChart /> */}
+          
+          {/* <IndividualStockNews /> */}
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
@@ -65,7 +67,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/dashboard' exact={true} >
           <SearchBar></SearchBar>
-          <GeneralNewsFeed />
+          {/* <GeneralNewsFeed /> */}
         </ProtectedRoute>
 
       </Switch>
