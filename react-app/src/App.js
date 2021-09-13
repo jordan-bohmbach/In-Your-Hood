@@ -64,7 +64,6 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/dashboard' exact={true} >
-          {/* <h1>My Home Page</h1> */}
           <SearchBar></SearchBar>
           <GeneralNewsFeed />
         </ProtectedRoute>
