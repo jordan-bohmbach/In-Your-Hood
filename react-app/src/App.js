@@ -6,13 +6,14 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import SearchBar from './components/Header/SearchBar';
 // import NewsFeed from './components/NewsFeed';
-import StockChart from './components/StockChart';
+import StockChart from './components/AssetDetails/StockChart';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import Splash from './components/Splash';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard'
+import AssetDetails from './components/AssetDetails'
 import { authenticate } from './store/session';
 
 function App() {
@@ -48,7 +49,8 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/stock/:ticker' exact={true}>
-          <StockChart />
+          <AssetDetails />
+          {/* <StockChart /> */}
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>

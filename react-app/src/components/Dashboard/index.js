@@ -2,6 +2,7 @@ import './Dashboard.css'
 
 import NewsFeed from '../NewsFeed'
 import Header from '../Header'
+import Watchlist from '../Watchlist'
 
 
 function Dashboard(){
@@ -17,9 +18,7 @@ function Dashboard(){
                 
             </div>
 
-            <div className='dash__watchlist-container'>
-                <h1> Watchlist </h1>
-            </div>
+            <Watchlist /> 
 
             <h1 className='news-feed__label'> News Feed </h1>
             <div className='dash__newsFeed'>
