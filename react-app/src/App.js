@@ -4,8 +4,12 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
-import SearchBar from './components/SearchBar';
+
+import SearchBar from './components/Header/SearchBar';
+// import NewsFeed from './components/NewsFeed';
+
 import GeneralNewsFeed from './components/GeneralNewsFeed';
+
 import StockChart from './components/StockChart';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';

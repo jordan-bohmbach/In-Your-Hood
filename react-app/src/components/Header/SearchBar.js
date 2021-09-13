@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import './Header.css'
 
 const SearchBar = () => {
     const [searchVal, setSearchVal] = useState('')
@@ -22,8 +23,8 @@ const SearchBar = () => {
 
     return (
         <>
-            <h1>Hello from the Search Bar</h1>
             <input
+                className='search__input-bar'
                 onChange={e => setSearchVal(e.target.value)}
                 value={searchVal}
                 placeholder="Search..."
