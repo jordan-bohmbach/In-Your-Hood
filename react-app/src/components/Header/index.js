@@ -15,6 +15,10 @@ function Header(){
             </div>
 
             <div className='links'>
+                
+                <h1>News</h1>
+                <h1>Portfolio</h1>
+                <a href='/account'><h1>Account</h1></a>
 
             </div>
         </div>  

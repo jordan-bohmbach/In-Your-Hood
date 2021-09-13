@@ -10,10 +10,10 @@
 
 
 .dash__watchlist-container{
-    height: 800px;
+    height: 700px;
     width: 300px;
     border: 3px solid red; 
-    position: absolute;
+    position: fixed;
     right: 200px;
     top:210px;
 
@@ -25,7 +25,24 @@
     height:fit-content;
     position: absolute;
     top: 900px;
-    border: 3px solid red; 
+    /* border: 3px solid red;  */
     left: 100px;
 
+}
+
+.news-feed__label{
+    position:absolute;
+    top:820px;
+    left: 600px;
+
+}
+
+.jump-to-top{
+    position:fixed;
+    height: 60px;
+    width:60px;
+    right:0;
+    border: 3px solid green;
+    margin-top:240px;
+    
 }
