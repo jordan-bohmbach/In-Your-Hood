@@ -20,7 +20,6 @@ const IndividualStockNews = () => {
 
     return(
         <>
-            <h1>Hello from the Stock News Tile App</h1>
             {console.log('stockNews = ', stockNews)}
             {stockNews.map(article => (
                 <ArticleTile article={article} key={article.id} />
