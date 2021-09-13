@@ -10,6 +10,9 @@ import StockChart from './components/StockChart';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
+import Splash from './components/Splash';
+import Footer from './components/Footer';
+import Dashboard from './components/Dashboard'
 import { authenticate } from './store/session';
 import IndividualStockNews from './components/IndividualStockNews';
 
@@ -30,8 +33,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
+        <Route path='/' exact={true}>
+            <Splash />
+            <Footer />
+        </Route>
+        <Route path='/dashboard'> 
+            <Dashboard />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -48,11 +58,12 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+        <ProtectedRoute path='/dashboard' exact={true} >
+          {/* <h1>My Home Page</h1> */}
           <SearchBar></SearchBar>
           <GeneralNewsFeed />
         </ProtectedRoute>
+
       </Switch>
     </BrowserRouter>
   );
