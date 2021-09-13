@@ -51,9 +51,6 @@
 }
 
 .search__results{
-    /* border-left:3px solid #008056;
-    border-bottom:3px solid #008056;
-    border-right:3px solid #008056; */
     position:absolute;
     top:60px;
     width:480px;
