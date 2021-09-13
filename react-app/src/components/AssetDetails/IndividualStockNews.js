@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router"
-import ArticleTile from "./NewsFeed/ArticleTile"
+import ArticleTile from "../NewsFeed/ArticleTile"
 
 const IndividualStockNews = () => {
     const { ticker } = useParams()
