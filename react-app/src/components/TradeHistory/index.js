@@ -12,7 +12,7 @@ import Footer from '../Footer'
 function TradeHistory(){
     const { portfolio } = useParams()
     const dispatch = useDispatch()
-    console.log(`name`, portfolio)
+    
 
     const portfolios = useSelector((state) => Object.values(state.portfolios))
     const session = useSelector((state) => state.session)
@@ -26,22 +26,47 @@ function TradeHistory(){
         dispatch(getPortfolios())
     }, [dispatch])
 
-    console.log(`history:`, currentPort)
+    const trades = currentPort[0].trades
 
-    // const currPort = 
+    
+    console.log(`trades:`, trades)
+
+    
 
     return(
         <>
             <Header />
 
             <div className='port__title'>
-                {usrPorts.map((port) => (
+                {currentPort.map((port) => (
                     <h1>{port.name}</h1>
                 ))}
                 
             </div>
 
             <div className='port__holdings-chart'>
+                <tr className='table__row'>
+                    <td className='table__cell'>Date</td>
+                    <td className='table__cell'>Ticker</td>
+                    <td className='table__cell'>Execution Price</td>
+                    <td className='table__cell'>Action</td>
+                    <td className='table__cell'>Quantity</td>
+
+                    
+                                
+                </tr>
+                {trades.map((trade) => (
+
+                    <div className='port__holdings-row'>
+                        <tr>
+                            <td>{trade.transaction_date}</td>
+                            <td>{trade.ticker}</td>
+                            <td>{trade.execution_price}</td>
+                            <td>{trade.execution_type}</td>
+                            <td>{trade.quantity}</td>
+                        </tr>
+                    </div>
+                ))}
                 <ul>
 
                 </ul>

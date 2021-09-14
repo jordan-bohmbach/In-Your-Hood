@@ -1,0 +1,16 @@
+.port__holdings-row{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+
+.table__row{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+
+.table__cell{
+    display:flex;
+    justify-content: space-evenly;
+}
