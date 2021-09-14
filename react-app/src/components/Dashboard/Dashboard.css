@@ -1,7 +1,7 @@
 
 
 .dash__portfilioStats{
-    height: 500px;
+    height: 400px;
     width: 50%;
     border: 3px solid red;
     margin-left: 200px;
@@ -50,4 +50,9 @@
 .stats__balance{
     color:green;
     font-weight:bold;
+}
+
+.port__chart{
+    border: 2px solid purple;
+    height: 327px;
 }

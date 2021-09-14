@@ -14,6 +14,7 @@ import Splash from './components/Splash';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
+import Charts from './components/Dashboard/Chart';
 import { authenticate } from './store/session';
 import { getPortfolios } from './store/portfolio';
 
@@ -67,6 +68,9 @@ function App() {
           <SearchBar></SearchBar>
           {/* <GeneralNewsFeed /> */}
         </ProtectedRoute>
+        <Route path='/charttest'>
+            <Charts />
+        </Route>
 
       </Switch>
     </BrowserRouter>

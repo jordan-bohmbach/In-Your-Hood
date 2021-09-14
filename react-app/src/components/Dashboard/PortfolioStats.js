@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPortfolios } from '../../store/portfolio'
+import Charts from './Chart.js'
 
 function PortfolioStats(){
     const dispatch = useDispatch()
@@ -14,6 +15,9 @@ function PortfolioStats(){
     useEffect(() => {
         dispatch(getPortfolios())
     }, [dispatch])
+    
+    
+    
     return (
         <>
             {usrPorts.map((port) => (
@@ -23,8 +27,14 @@ function PortfolioStats(){
                 <h2 className='stats__balance'>$ {port.balance}</h2>
             </div>
             ))}
-            
-        </>
+
+
+            <div className='port__chart'>
+                <Charts/>
+
+            </div>
+        </>    
+        
     )
 }
 
