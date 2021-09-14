@@ -3,6 +3,7 @@ import StockChart from './StockChart.js';
 import Header from '../Header';
 import Footer from '../Footer';
 import Watchlist from '../Watchlist'
+import IndividualStockNews from './IndividualStockNews'
 
 
 function AssetDetails(){
@@ -14,7 +15,12 @@ function AssetDetails(){
             < Watchlist /> 
 
            <div className='stock__information'>
+                <div className='stock__details'>
 
+                </div>
+                <div className='stock__news'>
+                    <IndividualStockNews /> 
+                </div>
            </div>
 
            <Footer />

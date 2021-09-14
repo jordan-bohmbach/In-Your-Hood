@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router"
-import ArticleTile from "./NewsFeed/ArticleTile"
+import ArticleTile from "../NewsFeed/ArticleTile"
 
 const IndividualStockNews = () => {
     const { ticker } = useParams()
@@ -20,7 +20,6 @@ const IndividualStockNews = () => {
 
     return(
         <>
-            <h1>Hello from the Stock News Tile App</h1>
             {console.log('stockNews = ', stockNews)}
             {stockNews.map(article => (
                 <ArticleTile article={article} key={article.id} />

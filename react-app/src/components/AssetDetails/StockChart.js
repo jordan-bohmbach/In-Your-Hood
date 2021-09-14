@@ -7,8 +7,6 @@ const StockChart = () => {
     const { ticker } = useParams()
     return(
         <>
-            {/* <h1>Hello from the stock chart for ticker :</h1> */}
-
             <h1 className='chart__label'>{ticker}</h1>
 
             <div className='chart'>

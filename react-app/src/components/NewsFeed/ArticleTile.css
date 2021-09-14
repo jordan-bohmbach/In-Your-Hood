@@ -6,27 +6,26 @@
     margin-bottom: 0;
 }
 
-/* .date{
-    position: absolute;
-    right:0;
-    
-} */
 
+.article-tile{
+    position: relative;
+}
 
 .article__summary{
+   /* border: 3px solid blue; */
    position: absolute;
-   width:60%;
+   width:50%;
    display:flex;
    font-size:22px;
    right: 10px;
+   top:150px;
    
    
 }
 
 .summary_txt{
- /* margin-bottom: 100px;    */
- position:absolute;
  bottom:100px;
+ display:flex
 
 }
 
