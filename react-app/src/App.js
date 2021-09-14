@@ -16,6 +16,7 @@ import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
 import { authenticate } from './store/session';
 import { getPortfolios } from './store/portfolio';
+import { getWatchlists } from './store/watchlist';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getPortfolios())
+    dispatch(getWatchlists())
   },[dispatch])
 
   if (!loaded) {
