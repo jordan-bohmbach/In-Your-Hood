@@ -9,6 +9,7 @@ const loadPortfolios = (portfolios) => ({
     portfolios
 })
 
+// get all ports
 export const getPortfolios = () => async(dispatch) => {
     const response = await fetch(`/api/portfolios`);
     const portfolioList = await response.json()

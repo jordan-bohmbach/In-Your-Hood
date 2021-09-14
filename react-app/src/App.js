@@ -56,9 +56,6 @@ function App() {
         </Route>
         <Route path='/stock/:ticker' exact={true}>
           <AssetDetails />
-          {/* <StockChart /> */}
-          
-          {/* <IndividualStockNews /> */}
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
