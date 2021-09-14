@@ -15,8 +15,12 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
 import Charts from './components/Dashboard/Chart';
+import TradeHistory from './components/TradeHistory'
+
+
 import { authenticate } from './store/session';
 import { getPortfolios } from './store/portfolio';
+import PortfolioStats from './components/Dashboard/PortfolioStats';
 
 
 function App() {
@@ -68,9 +72,10 @@ function App() {
           <SearchBar></SearchBar>
           {/* <GeneralNewsFeed /> */}
         </ProtectedRoute>
-        <Route path='/charttest'>
-            <Charts />
-        </Route>
+        <ProtectedRoute path='/:portfolio/trade-history'>
+            <TradeHistory />
+        </ProtectedRoute>
+        
 
       </Switch>
     </BrowserRouter>
