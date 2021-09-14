@@ -1,13 +1,27 @@
 
 const LOAD_WATCHLISTS = 'watchlists/LOAD'
-// const ADD_WATCHLIST = 'watchlists/ADD'
-// const REMOVE_WATCHLIST = 'watchlists/REMOVE'
-// const EDIT_WATCHLIST = 'watchlists/EDIT'
-// const ADD_TRADE_TO_WATCHLIST = 'watchlists/trade'
+const ADD_WATCHLIST = 'watchlists/ADD'
+const REMOVE_WATCHLIST = 'watchlists/REMOVE'
+const EDIT_WATCHLIST = 'watchlists/EDIT'
 
 const loadWatchlists = (watchlists) => ({
     type: LOAD_WATCHLISTS,
     watchlists
+})
+
+const update = (watchlist) => ({
+    type: EDIT_WATCHLIST,
+    watchlist
+})
+
+const addOneWatchlist = (watchlist) => ({
+    type: ADD_WATCHLIST,
+    watchlist
+})
+
+const remove = (watchlistId) => ({
+    type: REMOVE_WATCHLIST,
+    watchlistId,
 })
 
 export const getWatchlists = () => async (dispatch) => {
@@ -15,6 +29,49 @@ export const getWatchlists = () => async (dispatch) => {
     const watchlistList = await response.json()
     console.log('watchlistList = ', watchlistList)
     dispatch(loadWatchlists(watchlistList))
+}
+
+export const createOneWatchlist = (payload) => async dispatch => {
+    const {
+        name,
+        description,
+        owner_id
+    } = payload
+
+    const response = await fetch(`/api/watchlists`, {
+        method: 'POST',
+        body: JSON.stringify({name, description, owner_id})
+    });
+
+    let newWatchlist
+    if(response.ok){
+        newWatchlist = await response.json();
+        dispatch(addOneWatchlist(newWatchlist))
+    }
+    return newWatchlist
+}
+
+export const updateWatchlist = watchlist => async dispatch => {
+    const response = await fetch(`/api/watchlists/${watchlist.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(watchlist)
+    })
+
+    if(response.ok){
+        const watchlist = await response.json()
+        dispatch(update(watchlist))
+        return watchlist
+    }
+}
+
+export const deleteWatchlist = watchlistId => async dispatch => {
+    const response = await fetch(`/api/watchlists/${watchlistId}`, {
+        method: 'DELETE'
+    })
+
+    if(response.ok){
+        dispatch(remove(watchlistId))
+    }
 }
 
 export default function watchlistReducer(state = {}, action) {
@@ -28,6 +85,33 @@ export default function watchlistReducer(state = {}, action) {
             return {
                 ...state,
                 ...newWatchlists
+            }
+
+        case ADD_WATCHLIST:
+            if(!state[action.watchlist.id]){
+                return {
+                    ...state,
+                    [action.watchlist.id] : action.watchlist
+                }
+            }
+
+            return {
+                ...state,
+                [action.watchlist.id] : {
+                    ...state[action.watchlist.id],
+                    ...action.watchlist
+                }
+            }
+
+        case REMOVE_WATCHLIST:
+            let newState = { ...state }
+            delete newState[action.watchlistId]
+            return newState
+
+        case EDIT_WATCHLIST:
+            return {
+                ...state,
+                [action.watchlist.id] : action.watchlist
             }
 
         default:
