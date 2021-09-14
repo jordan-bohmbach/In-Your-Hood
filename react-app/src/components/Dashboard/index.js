@@ -3,7 +3,9 @@ import './Dashboard.css'
 import NewsFeed from '../NewsFeed'
 import Header from '../Header'
 import Watchlist from '../Watchlist'
-
+// import Chart from '../Portfolio/Chart'
+// import PortfolioStats from '../Portfolio/Chart'
+import PortfolioStats from './PortfolioStats.js'
 
 function Dashboard(){
 
@@ -14,7 +16,7 @@ function Dashboard(){
             <Header /> 
 
             <div className='dash__portfilioStats'>
-                <h1>portfolio stats</h1>
+                <PortfolioStats />
                 
             </div>
 
