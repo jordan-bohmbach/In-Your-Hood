@@ -7,9 +7,10 @@ import NavBar from './components/NavBar';
 
 import SearchBar from './components/Header/SearchBar';
 // import NewsFeed from './components/NewsFeed';
-import StockChart from './components/AssetDetails/StockChart';
 
 // import GeneralNewsFeed from './components/GeneralNewsFeed';
+
+import StockChart from './components/StockChart';
 
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -19,7 +20,9 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
 import { authenticate } from './store/session';
-// import IndividualStockNews from './components/IndividualStockNews';
+import IndividualStockNews from './components/IndividualStockNews';
+import { getPortfolios } from './store/portfolio';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -31,6 +34,10 @@ function App() {
       setLoaded(true);
     })();
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getPortfolios())
+  },[dispatch])
 
   if (!loaded) {
     return null;
