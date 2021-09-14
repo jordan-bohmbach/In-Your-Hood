@@ -34,3 +34,25 @@
     margin-top:240px;
     
 }
+
+
+.stats__header{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 30px;
+    align-items: center;
+    height:70px;
+    background-color: white;
+}
+
+
+.stats__balance{
+    color:green;
+    font-weight:bold;
+}
+
+.port__chart{
+    border: 2px solid purple;
+    height: 327px;
+}

@@ -14,6 +14,7 @@ import Splash from './components/Splash';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
+import Charts from './components/Dashboard/Chart';
 import { authenticate } from './store/session';
 import { getPortfolios } from './store/portfolio';
 import { getWatchlists } from './store/watchlist';
@@ -58,9 +59,6 @@ function App() {
         </Route>
         <Route path='/stock/:ticker' exact={true}>
           <AssetDetails />
-          {/* <StockChart /> */}
-          
-          {/* <IndividualStockNews /> */}
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
@@ -72,6 +70,9 @@ function App() {
           <SearchBar></SearchBar>
           {/* <GeneralNewsFeed /> */}
         </ProtectedRoute>
+        <Route path='/charttest'>
+            <Charts />
+        </Route>
 
       </Switch>
     </BrowserRouter>

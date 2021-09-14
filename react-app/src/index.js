@@ -7,8 +7,8 @@ import configureStore from './store';
 import {addOneTrade} from './store/portfolio'
 
 const store = configureStore();
-window.store = store
-window.addOneTrade = addOneTrade
+// window.store = store
+// window.addOneTrade = addOneTrade
 
 ReactDOM.render(
   <React.StrictMode>
