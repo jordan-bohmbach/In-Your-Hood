@@ -20,7 +20,7 @@ function Dashboard(){
                 
             </div>
 
-            <Watchlist /> 
+            {/* <Watchlist />  */}
 
             <h1 className='news-feed__label'> News Feed </h1>
             <div className='dash__newsFeed'>
