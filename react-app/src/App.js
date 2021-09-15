@@ -18,10 +18,16 @@ import Charts from './components/Dashboard/Chart';
 import CreatePortfolioForm from './components/FormsTesting/CreatePortfolioForm';
 import CreateWatchlistForm from './components/FormsTesting/CreateWatchlistForm';
 import Watchlist from './components/Watchlist';
+import TradeHistory from './components/TradeHistory'
+
 
 import { authenticate } from './store/session';
 import { getPortfolios } from './store/portfolio';
+
+import PortfolioStats from './components/Dashboard/PortfolioStats';
+
 import { getWatchlists } from './store/watchlist';
+
 
 
 function App() {
@@ -82,6 +88,11 @@ function App() {
           <CreateWatchlistForm />
           <Watchlist />
         </Route>
+        <ProtectedRoute path='/:portfolio/trade-history'>
+            <TradeHistory />
+        </ProtectedRoute>
+        
+
       </Switch>
     </BrowserRouter>
   );

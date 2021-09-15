@@ -24,7 +24,7 @@ function PortfolioStats(){
             <div className='stats__header'>
                 {/* <select><option value={port.name}><h1>{port.name}</h1></option></select> */}
                 <h1>{port.name}</h1>
-                <h2 className='stats__balance'>$ {port.balance}</h2>
+                
             </div>
             ))}
 
@@ -33,6 +33,17 @@ function PortfolioStats(){
                 <Charts/>
 
             </div>
+
+                {usrPorts.map((port) => (
+            <div className='tradeHistory__link'>        
+                    <h2 className='stats__balance'>$ {port.balance}</h2>
+                    
+                    <a className='th__link' href={`/${port.name}/trade-history`}>Trade History</a>
+                    
+            </div>    
+                ))}
+                
+            
         </>    
         
     )
