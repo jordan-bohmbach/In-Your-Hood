@@ -16,6 +16,7 @@ import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
 import Charts from './components/Dashboard/Chart';
 import TradeHistory from './components/TradeHistory'
+import Profile from './components/Profile'
 
 
 import { authenticate } from './store/session';
@@ -55,6 +56,9 @@ function App() {
             <Splash />
             <Footer />
         </Route>
+        <ProtectedRoute path='/account'>
+            <Profile />
+        </ProtectedRoute>
         <Route path='/dashboard'> 
             <Dashboard />
         </Route>
