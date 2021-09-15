@@ -82,13 +82,7 @@ function App() {
         <ProtectedRoute path='/:portfolio/trade-history'>
             <TradeHistory />
         </ProtectedRoute>
-        <Route path='/formTest'>
-        <NewPortfolioForm/>
-        </Route>
-        <Route path='/formTest2'>
-        <NewWatchlistForm/>
-        </Route>
-        <Route path='/formTest3'>
+        <Route path='/tradeFormTest'>
         <NewTradeForm></NewTradeForm>
         </Route>
 
