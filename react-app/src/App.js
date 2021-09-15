@@ -16,7 +16,9 @@ import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
 import Charts from './components/Dashboard/Chart';
 import TradeHistory from './components/TradeHistory'
-
+import NewPortfolioForm from './components/Dashboard/NewPortfolioForm'
+import NewWatchlistForm from './components/Dashboard/NewWatchlistForm'
+import NewTradeForm from './components/NewTradeForm'
 
 import { authenticate } from './store/session';
 import { getPortfolios } from './store/portfolio';
@@ -55,7 +57,7 @@ function App() {
             <Splash />
             <Footer />
         </Route>
-        <Route path='/dashboard'> 
+        <Route path='/dashboard'>
             <Dashboard />
         </Route>
         <Route path='/login' exact={true}>
@@ -80,7 +82,16 @@ function App() {
         <ProtectedRoute path='/:portfolio/trade-history'>
             <TradeHistory />
         </ProtectedRoute>
-        
+        <Route path='/formTest'>
+        <NewPortfolioForm/>
+        </Route>
+        <Route path='/formTest2'>
+        <NewWatchlistForm/>
+        </Route>
+        <Route path='/formTest3'>
+        <NewTradeForm></NewTradeForm>
+        </Route>
+
 
       </Switch>
     </BrowserRouter>
