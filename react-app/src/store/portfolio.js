@@ -46,6 +46,7 @@ export const createOnePortfolio = (payload) => async dispatch => {
 
     const response = await fetch(`/api/portfolios`, {
         method: 'POST',
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, description, balance, owner_id })
     });
 
@@ -69,6 +70,7 @@ export const createOneTrade = (payload) => async dispatch => {
 
     const response = await fetch(`/api/trades`, {
         method: 'POST',
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({portfolio_id, ticker, execution_price, execution_type, quantity, transaction_date})
     })
 
@@ -83,6 +85,7 @@ export const createOneTrade = (payload) => async dispatch => {
 export const updatePortfolio = portfolio => async dispatch => {
     const response = await fetch(`/api/portfolios/${portfolio.id}`, {
         method: 'PUT',
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(portfolio)
     })
 

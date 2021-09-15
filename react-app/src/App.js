@@ -15,6 +15,10 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
 import Charts from './components/Dashboard/Chart';
+import CreatePortfolioForm from './components/FormsTesting/CreatePortfolioForm';
+import CreateWatchlistForm from './components/FormsTesting/CreateWatchlistForm';
+import Watchlist from './components/Watchlist';
+
 import { authenticate } from './store/session';
 import { getPortfolios } from './store/portfolio';
 import { getWatchlists } from './store/watchlist';
@@ -73,7 +77,11 @@ function App() {
         <Route path='/charttest'>
             <Charts />
         </Route>
-
+        <Route path='/formtest'>
+          <CreatePortfolioForm />
+          <CreateWatchlistForm />
+          <Watchlist />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

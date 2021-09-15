@@ -14,8 +14,17 @@ class Portfolio(db.Model):
     owner_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
 
     owner = relationship("User", back_populates="portfolios")
-    trades = relationship("Trade", back_populates="portfolio")
+    trades = relationship("Trade", back_populates="portfolio", cascade='all, delete')
 
     @property
     def get_balance(self):
         return self.balance
+
+    def to_dict(self):
+        return {
+            'id:' : self.id,
+            'name' : self.name,
+            'description' : self.description,
+            'balance' : str(self.balance),
+            'owner_id' : self.owner_id
+        }

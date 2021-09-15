@@ -13,8 +13,12 @@ class Watchlist(db.Model):
     owner_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
 
     owner = relationship("User", back_populates="watchlists")
-    watchlist_stocks = relationship("WatchlistStock", back_populates="watchlist")
+    watchlist_stocks = relationship("WatchlistStock", back_populates="watchlist", cascade='all, delete')
 
-    @property
-    def get_balance(self):
-        return self.balance
+    def to_dict(self):
+        return {
+            'id:' : self.id,
+            'name' : self.name,
+            'description' : self.description,
+            'owner_id' : self.owner_id
+        }
