@@ -6,7 +6,8 @@ import { useParams } from 'react-router'
 import './TradeHistory.css'
 import Header from '../Header'
 import Footer from '../Footer'
-
+import PortfolioStatsChart from './PortfolioStatsChart'
+import PortfolioStats from '../Dashboard/PortfolioStats'
 
 
 function TradeHistory(){
@@ -44,8 +45,16 @@ function TradeHistory(){
             </div>
 
             <div className='th__port-state'>
+                <PortfolioStatsChart trades={trades} />
 
             </div>
+             <div className='th__container-label'>
+                    <h2 className='container__label-date'>Date</h2>
+                    <h2 className='container__label-ticker'>Ticker</h2>
+                    <h2 className='container__label-price'>Execution Price</h2>
+                    <h2 className='container__label-action'>Action</h2>
+                    <h2 className='container__label-quantity'>Quantity</h2>
+             </div>
 
              <div className='trade__history-container'>
                  {trades?.map((trade) => (

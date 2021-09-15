@@ -10,11 +10,42 @@
     justify-content: center;
 }
 
+.th__container-label{
+    display:flex;
+    justify-content: space-evenly;
+    width:60%;
+    margin-top: 5% ;
+    margin-left:20%;
+    background-color: white;
+    
+}
+
+
+.container__label-date{
+    margin-left:10%;
+}
+
+.container__label-ticker{
+    margin-left:12%;
+}
+
+.container__label-action{
+    margin-right:2%;
+}
+
+.container__label-quantity{
+    margin-right:2%;
+}
+
+
+
+
+
 .trade__history-container{
     /* border:3px solid black; */
     width:60%;
     margin-left:20%;
-    margin-top: 5% 
+    /* margin-top: 5%  */
     /* display:flex; */
     /* justify-content: space-evenly;  */
 }
