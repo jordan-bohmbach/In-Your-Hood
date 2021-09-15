@@ -26,7 +26,7 @@ function TradeHistory(){
         dispatch(getPortfolios())
     }, [dispatch])
 
-    const trades = currentPort[0].trades
+    const trades = currentPort[0]?.trades
 
     
     console.log(`trades:`, trades)
@@ -35,8 +35,7 @@ function TradeHistory(){
 
     return(
         <>
-            {/* <Header />
-
+             <Header />
             <div className='port__title'>
                 {currentPort.map((port) => (
                     <h1>{port.name}</h1>
@@ -44,6 +43,25 @@ function TradeHistory(){
                 
             </div>
 
+            <div className='th__port-state'>
+
+            </div>
+
+             <div className='trade__history-container'>
+                 {trades?.map((trade) => (
+                     <div className='th__data-row'>
+                        <p className='data__row-date'>{trade.transaction_date}</p>
+                        <p className='data__row-ticker'>{trade.ticker}</p>
+                        <p className='data__row-price'>{trade.execution_price}</p>
+                        <p className='data__row-type'>{trade.execution_type}</p>
+                        <p className='data__row-quantity'>{trade.quantity}</p>
+                     </div>
+                 ))}
+
+             </div>
+
+           
+{/* 
             <div className='port__holdings-chart'>
                 <tr className='table__row'>
                     <td className='table__cell'>Date</td>
@@ -75,8 +93,8 @@ function TradeHistory(){
 
             <div className='port__holdings-list'>
 
-            </div>
-            <Footer />*/}
+            </div>*/}
+            <Footer />
         </> 
 
     )
