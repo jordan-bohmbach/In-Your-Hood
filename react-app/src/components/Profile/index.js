@@ -21,6 +21,10 @@ function Profile(){
 
             </div>
             <div className='balanceSummary__container'>
+                <h1 className='bs__label'>Account summary</h1>
+                <div className='bs__portfolio-row'>
+
+                </div>
 
             </div>
             
