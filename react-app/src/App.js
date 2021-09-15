@@ -19,7 +19,9 @@ import CreatePortfolioForm from './components/FormsTesting/CreatePortfolioForm';
 import CreateWatchlistForm from './components/FormsTesting/CreateWatchlistForm';
 import Watchlist from './components/Watchlist';
 import TradeHistory from './components/TradeHistory'
-
+import NewPortfolioForm from './components/Dashboard/NewPortfolioForm'
+import NewWatchlistForm from './components/Dashboard/NewWatchlistForm'
+import NewTradeForm from './components/NewTradeForm'
 
 import { authenticate } from './store/session';
 import { getPortfolios } from './store/portfolio';
@@ -58,7 +60,7 @@ function App() {
             <Splash />
             <Footer />
         </Route>
-        <Route path='/dashboard'> 
+        <Route path='/dashboard'>
             <Dashboard />
         </Route>
         <Route path='/login' exact={true}>
@@ -91,7 +93,10 @@ function App() {
         <ProtectedRoute path='/:portfolio/trade-history'>
             <TradeHistory />
         </ProtectedRoute>
-        
+        <Route path='/tradeFormTest'>
+        <NewTradeForm></NewTradeForm>
+        </Route>
+
 
       </Switch>
     </BrowserRouter>
