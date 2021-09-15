@@ -15,6 +15,9 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
 import Charts from './components/Dashboard/Chart';
+import CreatePortfolioForm from './components/FormsTesting/CreatePortfolioForm';
+import CreateWatchlistForm from './components/FormsTesting/CreateWatchlistForm';
+import Watchlist from './components/Watchlist';
 import TradeHistory from './components/TradeHistory'
 
 
@@ -77,6 +80,14 @@ function App() {
           <SearchBar></SearchBar>
           {/* <GeneralNewsFeed /> */}
         </ProtectedRoute>
+        <Route path='/charttest'>
+            <Charts />
+        </Route>
+        <Route path='/formtest'>
+          <CreatePortfolioForm />
+          <CreateWatchlistForm />
+          <Watchlist />
+        </Route>
         <ProtectedRoute path='/:portfolio/trade-history'>
             <TradeHistory />
         </ProtectedRoute>
