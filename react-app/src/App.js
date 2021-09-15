@@ -19,8 +19,6 @@ import CreatePortfolioForm from './components/FormsTesting/CreatePortfolioForm';
 import CreateWatchlistForm from './components/FormsTesting/CreateWatchlistForm';
 import Watchlist from './components/Watchlist';
 import TradeHistory from './components/TradeHistory'
-import NewPortfolioForm from './components/Dashboard/NewPortfolioForm'
-import NewWatchlistForm from './components/Dashboard/NewWatchlistForm'
 import NewTradeForm from './components/NewTradeForm'
 
 import { authenticate } from './store/session';
