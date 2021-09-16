@@ -7,32 +7,32 @@ import './TradeHistory.css'
 import Header from '../Header'
 import Footer from '../Footer'
 import PortfolioStatsChart from './PortfolioStatsChart'
-import PortfolioStats from '../Dashboard/PortfolioStats'
+// import PortfolioStats from '../Dashboard/PortfolioStats'
 
 
 function TradeHistory(){
     const { portfolio } = useParams()
     const dispatch = useDispatch()
-    
+
 
     const portfolios = useSelector((state) => Object.values(state.portfolios))
     const session = useSelector((state) => state.session)
-    
+
     const currUsr = session.user
-    const usrPorts = portfolios.filter((port) =>  port.owner_id == currUsr.id)
-    
-    const currentPort = usrPorts.filter((port) => port.name ===portfolio )
-   
+    const usrPorts = portfolios.filter((port) =>  port.owner_id === currUsr.id)
+
+    const currentPort = usrPorts.filter((port) => port.name === portfolio )
+
     useEffect(() => {
         dispatch(getPortfolios())
     }, [dispatch])
 
     const trades = currentPort[0]?.trades
 
-    
+
     console.log(`trades:`, trades)
 
-    
+
 
     return(
         <>
@@ -41,7 +41,7 @@ function TradeHistory(){
                 {currentPort.map((port) => (
                     <h1>{port.name}</h1>
                 ))}
-                
+
             </div>
 
             <div className='th__port-state'>
@@ -69,8 +69,9 @@ function TradeHistory(){
 
              </div>
 
+
             <Footer />
-        </> 
+        </>
 
     )
 }

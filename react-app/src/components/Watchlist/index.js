@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 // import { useParams } from 'react-router';
 import { getWatchlists, createOneWatchlist, updateWatchlist, deleteWatchlist } from '../../store/watchlist';
@@ -8,34 +8,20 @@ import './Watchlist.css'
 function Watchlist(){
     const dispatch = useDispatch()
     const watchlists = useSelector((state) => Object.values(state.watchlists))
-    const session = useSelector((state) => state.session)
+    // const session = useSelector((state) => state.session)
 
     useEffect(() => {
         dispatch(getWatchlists());
     }, [dispatch]);
 
-    // funciton to grab and store name and items in an array  
 
-    const getListItems = (x) => {
-        for(let i = 0; i < watchlists?.length; i++){
-            let single = watchlists[i]
-            if(single?.name === x){
-               return single.stocks
-            }
-        }
+
+    const handleDelete = () => {
+        dispatch(deleteWatchlist(Number(watchlists.id)))
+        // console.log(watchlists.id)
     }
 
-    console.log(`!!!`, getListItems('Coffee'))
 
-    // function to take the list of watchlist names and pop one off each time 
-    // object with name key and value and ticker key with array of tickers able to map 
-
-    const check = (id) => {
-        const input = document.getElementById(id)
-        console.log(`here`, id)
-    }
-
-   
     return (
 
     <div className='dash__watchlist-container'>
@@ -55,7 +41,7 @@ function Watchlist(){
                         <a className='stock__link'href={`/stock/${stock}`}><p>{stock}</p></a>
                         <div className='buttons'>
                             <button className='buttons' ><img src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png"/></button>
-                            <button className='buttons' ><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png"/></button>
+                            <button className='buttons' className="deleteWatchlist" onClick={() => handleDelete(watchlists?.id)}><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png"/></button>
                         </div>    
                         </div>
                     ))}
@@ -64,7 +50,6 @@ function Watchlist(){
                 </> 
             ))}
 
-            
         </div>
         </section>
 
