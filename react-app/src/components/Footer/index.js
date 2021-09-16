@@ -14,13 +14,8 @@ function Footer(){
         'Linkedin' : '',
     },
     {
-        'name' : 'Moncef Sebbata',
-        'Github' : 'https://github.com/msebbata',
-        'Linkedin' : '',
-    },
-    {
         'name' : 'Jordan Bohmbach',
-        'Github' : 'https://github.com/msebbata',
+        'Github' : 'https://github.com/jordan-bohmbach',
         'Linkedin' : '',
     }
 ]
