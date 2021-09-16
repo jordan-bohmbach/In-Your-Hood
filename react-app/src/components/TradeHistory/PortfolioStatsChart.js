@@ -5,11 +5,7 @@ import PortfolioStats from '../Dashboard/PortfolioStats'
 
 function PortfolioStatsChart({trades}){
 
-    // console.log(`chart:`, trades)
-
-    const info = trades?.map((trade) => Array(trade.ticker, trade.quantity))
     const values = trades?.map((trade) => [trade.ticker, trade.quantity, trade.execution_price])
-    console.log(`vals`, values)
 
     const calculateDollarAmount = (values) => {
         let res = []
@@ -22,10 +18,7 @@ function PortfolioStatsChart({trades}){
         return res
     }
 
-    console.log(`final`, calculateDollarAmount(values))
-    // console.log(`take1:`, info)
-
-    
+   
 
     return(
         <PieChart data={calculateDollarAmount(values)} />
