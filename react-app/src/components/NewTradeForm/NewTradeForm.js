@@ -10,16 +10,37 @@ function NewTradeForm({ticker}){
     const dispatch = useDispatch();
     const history = useHistory();
 
+    
     const sessionUser = useSelector(state => state.session.user);
+    const allPortfolios = useSelector(state => state.portfolios)
+    const myPortfolios = []
+
+    for (let key in allPortfolios) {
+        if(allPortfolios[key].owner_id === sessionUser.id){
+            myPortfolios.push(allPortfolios[key])
+        }
+    }
+
     const [portfolioId, setPortfolioId] = useState('');
     const [executionPrice, setExecutionPrice] = useState('')
     const [executionType, setExecutionType] = useState('')
     const [quantity, setQuantity] = useState('')
 
     const updatePortfolioId = (e) => setPortfolioId(e.target.value);
-    const updateExecutionPrice = (e) => setExecutionPrice(e.target.value);
     const updateExecutionType = (e) => setExecutionType(e.target.value);
     const updateQuantity = (e) => setQuantity(e.target.value);
+    
+    const updateExecutionPrice = () => {
+        const url = `https://finnhub.io/api/v1//quote?symbol=${ticker}&token=c4uiisiad3ie1t1fvu90`
+        fetch(url)
+            .then((res) => res.json())
+            .then((res) => setExecutionPrice(res.c))
+    }
+
+    useEffect(()=> {
+        updateExecutionPrice()
+    }, [ticker])
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,18 +61,36 @@ function NewTradeForm({ticker}){
     return(
         <div className="new-trade-form-container">
             <h2>Trade {ticker} Stock</h2>
-            <form onSubmit={handleSubmit}>
-                <label>Portfolio</label>
-                <select value={portfolioId}></select>
+            {console.log('portfolios = ', myPortfolios)}
+            <form onSubmit={handleSubmit} className='new-trade-form'>
+                <label>Portfolio
+                    <select 
+                    value={portfolioId}
+                    onChange={updatePortfolioId}
+                    >
+                        {myPortfolios.map(portfolio=>(
+                            <option key={portfolio.id}>
+                            {portfolio.name}
+                            </option>
+                        ))}
+                    </select>
+                </label>
 
-                <label>Execution Price</label>
-                <input value={executionPrice} onChange={updateExecutionPrice}></input>
+                <label>{`Execution Price: $${executionPrice} per share`}</label>
 
-                <label>Execution Type</label>
-                <input value={executionType} onChange={updateExecutionType}></input>
+                <label>Execution Type
+                    <select
+                    value={executionType}
+                    onChange={setExecutionType}
+                    >
+                        <option key={"BUY"}>BUY</option>
+                        <option key={"SELL"}>SELL</option>
+                    </select>
+                </label>
 
-                <label>Quantity</label>
-                <input value={quantity} onChange={updateQuantity}></input>
+                <label>Quantity
+                    <input value={quantity} type='number' onChange={updateQuantity}></input>
+                </label>
 
                 <button type="submit">Submit</button>
 

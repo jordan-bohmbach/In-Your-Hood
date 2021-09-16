@@ -5,5 +5,9 @@
     position: fixed;
     right: 200px;
     top:210px;
+}
 
+.new-trade-form {
+    display: flex;
+    flex-direction: column;
 }
