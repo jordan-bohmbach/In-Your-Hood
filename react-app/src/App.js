@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
+// import NavBar from './components/NavBar';
 
 import SearchBar from './components/Header/SearchBar';
 
@@ -32,7 +32,7 @@ import NewTradeForm from './components/NewTradeForm/NewTradeForm'
 import { authenticate } from './store/session';
 import { getPortfolios } from './store/portfolio';
 
-import PortfolioStats from './components/Dashboard/PortfolioStats';
+// import PortfolioStats from './components/Dashboard/PortfolioStats';
 
 import { getWatchlists } from './store/watchlist';
 

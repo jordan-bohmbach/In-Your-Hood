@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 // import { useParams } from 'react-router';
 import { getWatchlists, createOneWatchlist, updateWatchlist, deleteWatchlist } from '../../store/watchlist';
@@ -8,7 +8,7 @@ import './Watchlist.css'
 function Watchlist(){
     const dispatch = useDispatch()
     const watchlists = useSelector((state) => Object.values(state.watchlists))
-    const session = useSelector((state) => state.session)
+    // const session = useSelector((state) => state.session)
 
     useEffect(() => {
         dispatch(getWatchlists());
