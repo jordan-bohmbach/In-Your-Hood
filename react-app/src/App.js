@@ -69,9 +69,7 @@ function App() {
         <ProtectedRoute path='/account'>
             <Profile />
         </ProtectedRoute>
-
         <Route path='/dashboard'>
-
             <Dashboard />
         </Route>
         <Route path='/login' exact={true}>
@@ -106,6 +104,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/tradeFormTest'>
         <NewTradeForm></NewTradeForm>
+        </Route>
+        <Route path='/list-style'>
+            <Watchlist />
         </Route>
 
 
