@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { LineChart, PieChart } from 'react-chartkick'
+import { LineChart } from 'react-chartkick'
 import 'chartkick/chart.js'
 
 
 import { getPortfolios } from '../../store/portfolio'
- 
+
 function Charts({portfolioName}) {
-  
+
     const dispatch = useDispatch()
     const portfolios = useSelector((state) => Object.values(state.portfolios))
     const session = useSelector((state) => state.session)
@@ -19,16 +19,16 @@ function Charts({portfolioName}) {
     useEffect(() => {
         dispatch(getPortfolios())
     }, [dispatch])
-    
-    
+
+
     const currentUser = session.user
-    const currentDate = new Date()
-    
-    const userPortfolio = portfolios.filter((portfolio) =>  portfolio.owner_id == currentUser.id && portfolio.name == portfolioName)[0]
+    // const currentDate = new Date()
+
+    const userPortfolio = portfolios.filter((portfolio) =>  portfolio.owner_id === currentUser.id && portfolio.name === portfolioName)[0]
     // console.log('userPortfolio = ', userPortfolio)
-    
+
     const tickerData ={'AAPL': ''}
-    let tickerSet = new Set()
+    // let tickerSet = new Set()
 
     let count = 0
     const loadTickers = () => {
@@ -45,7 +45,7 @@ function Charts({portfolioName}) {
         } else {
             setDataLoaded(true)
         }
-        
+
     }
 
     const cleandata = () => {
@@ -67,10 +67,10 @@ function Charts({portfolioName}) {
         }
     }, [userPortfolio])
 
-    
+
     const portfolioBalanceHistory = {}
     let runningDate = new Date(Date.parse(userPortfolio?.createdat))
-    
+
     const dateToString = (date) => `${(date.getFullYear())}-${date.getMonth() + 1}-${date.getDate()}`
     const getPreviousDayDate = date => new Date(date.getTime() - (60*24*60000))
     const getNextDayDate = date => new Date(date.getTime()+(60*24*60000))
@@ -88,7 +88,7 @@ function Charts({portfolioName}) {
 
             let runningDateBalance = portfolioBalanceHistory[dateToString(runningDate)]
             // console.log('while loop condition here')
-            
+
             while(new Date(Date.parse(trades[pastTradeCount]?.transaction_date)) < getPreviousDayDate(runningDate)){ //while the first trade occured prior to the running date
                 if(trades[pastTradeCount].execution_type ==='BUY'){
                     // console.log('execution price is ',trades[pastTradeCount].execution_price)
@@ -102,7 +102,7 @@ function Charts({portfolioName}) {
                 pastTradeCount++
             }
 
-            
+
             portfolioBalanceHistory[dateToString(getNextDayDate(runningDate))]=runningDateBalance
             runningDate = getNextDayDate(runningDate)
         }
@@ -115,7 +115,7 @@ function Charts({portfolioName}) {
         balanceScraper()
     }, [dataLoaded])
 
-    
+
 
 
     // console.log('portfolioBalanceHistory = ', portfolioBalanceHistory)
@@ -129,7 +129,7 @@ function Charts({portfolioName}) {
             {finalDataObject && <LineChart data={finalDataObject} />}
         </div>
 
-        
+
     )
 }
 

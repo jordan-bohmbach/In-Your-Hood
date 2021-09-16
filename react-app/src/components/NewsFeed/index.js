@@ -19,13 +19,13 @@ const NewsFeed = () => {
 
     console.log(generalNews)
     return(
-        <>
+        <div className="newsFeedDiv">
             {generalNews.map(article => (
 
                 <ArticleTile article={article} key={article.id}></ArticleTile>
-            
+
             ))}
-        </>
+        </div>
     )
 }
 

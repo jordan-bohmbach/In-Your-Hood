@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { createOneTrade} from '../store/portfolio'
 
@@ -8,14 +8,14 @@ function NewTradeForm(){
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const sessionUser = useSelector(state => state.session.user);
+    // const sessionUser = useSelector(state => state.session.user);
     const [portfolioId, setPortfolioId] = useState('');
     const [ticker, setTicker] = useState('')
     const [executionPrice, setExecutionPrice] = useState('')
     const [executionType, setExecutionType] = useState('')
     const [quantity, setQuantity] = useState('')
 
-    const updatePortfolioId = (e) => setPortfolioId(e.target.value);
+    // const updatePortfolioId = (e) => setPortfolioId(e.target.value);
     const updateTicker = (e) => setTicker(e.target.value);
     const updateExecutionPrice = (e) => setExecutionPrice(e.target.value);
     const updateExecutionType = (e) => setExecutionType(e.target.value);

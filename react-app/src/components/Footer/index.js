@@ -23,7 +23,7 @@ function Footer(){
         'Github' : 'https://github.com/msebbata',
         'Linkedin' : '',
     }
-] 
+]
 
     return(
         <div className='ft__container'>
@@ -35,8 +35,8 @@ function Footer(){
                 {creators.map((person) => (
                     <div className='personal__info'>
                         <h2>{person.name}</h2>
-                        <a href={person.Github}><img className='tag' src="https://img.icons8.com/ios/50/000000/github--v1.png"/></a>
-                        <a href={person.Linkedin}><img className='tag' src="https://img.icons8.com/ios/50/000000/linkedin.png"/></a>
+                        <a href={person.Github}><img className='tag' src="https://img.icons8.com/ios/50/000000/github--v1.png" alt="GithubImage"/></a>
+                        <a href={person.Linkedin}><img className='tag' src="https://img.icons8.com/ios/50/000000/linkedin.png" alt="LinkedinImage"/></a>
                     </div>
                 ))}
 
