@@ -26,7 +26,7 @@ import TradeHistory from './components/TradeHistory'
 
 import Profile from './components/Profile'
 
-import NewTradeForm from './components/NewTradeForm'
+import NewTradeForm from './components/NewTradeForm/NewTradeForm'
 
 
 import { authenticate } from './store/session';

@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { createOneTrade} from '../store/portfolio'
+import { createOneTrade} from '../../store/portfolio'
 
-function NewTradeForm(){
+import './NewTradeForm.css'
+
+function NewTradeForm({ticker}){
 
     const dispatch = useDispatch();
     const history = useHistory();
 
     const sessionUser = useSelector(state => state.session.user);
     const [portfolioId, setPortfolioId] = useState('');
-    const [ticker, setTicker] = useState('')
     const [executionPrice, setExecutionPrice] = useState('')
     const [executionType, setExecutionType] = useState('')
     const [quantity, setQuantity] = useState('')
 
     const updatePortfolioId = (e) => setPortfolioId(e.target.value);
-    const updateTicker = (e) => setTicker(e.target.value);
     const updateExecutionPrice = (e) => setExecutionPrice(e.target.value);
     const updateExecutionType = (e) => setExecutionType(e.target.value);
     const updateQuantity = (e) => setQuantity(e.target.value);
@@ -38,12 +38,11 @@ function NewTradeForm(){
         }
     }
     return(
-        <div className="formContainer">
+        <div className="new-trade-form-container">
+            <h2>Trade {ticker} Stock</h2>
             <form onSubmit={handleSubmit}>
                 <label>Portfolio</label>
                 <select value={portfolioId}></select>
-                <label>Ticker</label>
-                <input value={ticker} onChange={updateTicker}></input>
 
                 <label>Execution Price</label>
                 <input value={executionPrice} onChange={updateExecutionPrice}></input>

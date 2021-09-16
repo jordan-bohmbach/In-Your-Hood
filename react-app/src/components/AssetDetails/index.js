@@ -6,6 +6,7 @@ import Watchlist from '../Watchlist'
 import IndividualStockNews from './IndividualStockNews'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import NewTradeForm from '../NewTradeForm/NewTradeForm';
 
 
 function AssetDetails(){
@@ -37,7 +38,8 @@ function AssetDetails(){
         <div>
             < Header />
             < StockChart />
-            < Watchlist /> 
+            {/* < Watchlist />  */}
+            <NewTradeForm ticker={ticker}/>
 
            <div className='stock__information'>
                 <div className='stock__details'>

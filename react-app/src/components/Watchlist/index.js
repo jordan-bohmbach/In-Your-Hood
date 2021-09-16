@@ -14,6 +14,11 @@ function Watchlist(){
         dispatch(getWatchlists());
     }, [dispatch]);
 
+    const handleDelete = () => {
+        dispatch(deleteWatchlist(Number(watchlists.id)))
+        // console.log(watchlists.id)
+    }
+
     return (
         <div className='dash__watchlist-container'>
             {watchlists.map((list) =>(
@@ -24,6 +29,7 @@ function Watchlist(){
                 </div>
                 </>
             ))}
+            <button className="deleteWatchlist" onClick={() => handleDelete(watchlists?.id)}>Delete</button>
         </div>
     )
 }
