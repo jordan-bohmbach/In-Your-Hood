@@ -81,7 +81,7 @@ function App() {
           {/* <GeneralNewsFeed /> */}
         </ProtectedRoute>
         <Route path='/charttest'>
-            <Charts />
+          <Charts portfolioName='Technology'/>
         </Route>
         <Route path='/formtest'>
           <CreatePortfolioForm />
