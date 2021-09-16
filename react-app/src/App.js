@@ -20,7 +20,12 @@ import CreateWatchlistForm from './components/FormsTesting/CreateWatchlistForm';
 import Watchlist from './components/Watchlist';
 import TradeHistory from './components/TradeHistory'
 
+// import NewPortfolioForm from './components/Dashboard/NewPortfolioForm'
+// import NewWatchlistForm from './components/Dashboard/NewWatchlistForm'
+
+
 import Profile from './components/Profile'
+
 import NewTradeForm from './components/NewTradeForm'
 
 
