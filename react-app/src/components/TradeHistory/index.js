@@ -70,39 +70,6 @@ function TradeHistory(){
              </div>
 
 
-{/*
-            <div className='port__holdings-chart'>
-                <tr className='table__row'>
-                    <td className='table__cell'>Date</td>
-                    <td className='table__cell'>Ticker</td>
-                    <td className='table__cell'>Execution Price</td>
-                    <td className='table__cell'>Action</td>
-                    <td className='table__cell'>Quantity</td>
-
-
-
-                </tr>
-                {trades.map((trade) => (
-
-                    <div className='port__holdings-row'>
-                        <tr>
-                            <td>{trade.transaction_date}</td>
-                            <td>{trade.ticker}</td>
-                            <td>{trade.execution_price}</td>
-                            <td>{trade.execution_type}</td>
-                            <td>{trade.quantity}</td>
-                        </tr>
-                    </div>
-                ))}
-                <ul>
-
-                </ul>
-
-            </div>
-
-            <div className='port__holdings-list'>
-
-            </div>*/}
             <Footer />
         </>
 
