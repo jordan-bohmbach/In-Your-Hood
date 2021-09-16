@@ -1,4 +1,14 @@
-
+.sticky__items{
+    /* border: 3px solid red;  */
+    height:950px;
+    width: 20%;
+    position: fixed;
+    right: 130px;
+    top:0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .dash__portfilioStats{
     height: 467px;

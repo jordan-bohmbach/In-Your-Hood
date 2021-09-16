@@ -64,10 +64,9 @@ function NewTradeForm({ticker}){
     }
     return(
         <div className="new-trade-form-container">
-            <h2>Trade {ticker} Stock</h2>
-            {console.log('portfolios = ', myPortfolios)}
+            <h2 className='trade__form-label'>Trade {ticker} Stock</h2>
             <form onSubmit={handleSubmit} className='new-trade-form'>
-                <label>Portfolio
+                <label className='trade__form-fields'>Portfolio
                     <select 
                     value={portfolioId}
                     onChange={updatePortfolioId}
@@ -80,9 +79,11 @@ function NewTradeForm({ticker}){
                     </select>
                 </label>
 
-                <label>{`Execution Price: $${executionPrice} per share`}</label>
+                <label className='trade__form-fields'>Execution Price 
+                    <p className='pershareprice'>{`$${executionPrice} per share`}</p>
+                </label>
 
-                <label>Execution Type
+                <label className='trade__form-fields'>Execution Type
                     <select
                     value={executionType}
                     onChange={setExecutionType}
@@ -92,11 +93,11 @@ function NewTradeForm({ticker}){
                     </select>
                 </label>
 
-                <label>Quantity
-                    <input value={quantity} type='number' onChange={updateQuantity}></input>
+                <label className='trade__form-fields'>Quantity
+                    <input className='tf__qty-input' value={quantity} type='number' onChange={updateQuantity}></input>
                 </label>
 
-                <button type="submit">Submit</button>
+                <button className='submitForm__button'type="submit">Submit</button>
 
             </form>
         </div>

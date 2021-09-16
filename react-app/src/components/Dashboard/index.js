@@ -2,10 +2,10 @@ import './Dashboard.css'
 
 import NewsFeed from '../NewsFeed'
 import Header from '../Header'
-// import Watchlist from '../Watchlist'
-// import Chart from '../Portfolio/Chart'
-// import PortfolioStats from '../Portfolio/Chart'
+import Watchlist from '../Watchlist'
 import PortfolioStats from './PortfolioStats.js'
+import NewTradeForm from '../NewTradeForm/NewTradeForm'
+import SearchBar from '../Header/SearchBar'
 
 function Dashboard(){
 
@@ -13,14 +13,19 @@ function Dashboard(){
 
 
         <div >
-            <Header />
-
+            {/* <Header /> */}
+            <SearchBar />
+            <div className='sticky__items'>
+                <NewTradeForm />
+                
+                <Watchlist /> 
+            </div>
             <div className='dash__portfilioStats'>
                 <PortfolioStats />
 
             </div>
 
-            {/* <Watchlist />  */}
+            
 
             <h1 className='news-feed__label'> News Feed </h1>
             <div className='dash__newsFeed'>
