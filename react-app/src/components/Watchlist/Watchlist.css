@@ -1,13 +1,12 @@
 .dash__watchlist-container{
-    height: 700px;
+    height: 350px;
     width: 300px;
-    position: fixed;
-    right: 200px;
-    top:210px;
+    right: 40px; 
+    top:0;
     overflow: auto;
-    
-
+    position:absolute;
 }
+
 
 
 .accordion > input[type="checkbox"] {
