@@ -1,0 +1,49 @@
+.userInfo__container{
+    height:400px;
+    width: 60%;
+    border: 3px solid red;
+    margin-top: 2%;
+    margin-left:7%;
+    display:flex;
+}
+
+.pfp__tile{
+    /* border: 3px solid red; */
+    width:30%;
+    height:400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userInfo__pfp{
+    height:250px;
+    width:250px;
+    border-radius: 50%; 
+    border: 3px solid red;
+
+}
+
+.userInfo__details{
+    border: 3px solid red;
+    width:max-content;
+    height: 280px;
+    padding-top:10%
+    
+    
+
+}
+
+
+.balanceSummary__container{
+    height:300px;
+    width: 30%;
+    border: 3px solid blue;
+    margin-top: 7%;
+    margin-left:7%
+}
+
+
+.bs__portfolio-row{
+    
+}
