@@ -15,15 +15,16 @@ function NewTradeForm({ticker}){
     const allPortfolios = useSelector(state => state.portfolios)
     const myPortfolios = []
 
+    const [portfolioId, setPortfolioId] = useState(1);
+
     for (let key in allPortfolios) {
         if(allPortfolios[key].owner_id === sessionUser.id){
             myPortfolios.push(allPortfolios[key])
         }
     }
 
-    const [portfolioId, setPortfolioId] = useState('');
     const [executionPrice, setExecutionPrice] = useState('')
-    const [executionType, setExecutionType] = useState('')
+    const [executionType, setExecutionType] = useState('BUY')
     const [quantity, setQuantity] = useState('')
 
     const updatePortfolioId = (e) => setPortfolioId(e.target.value);
@@ -45,12 +46,15 @@ function NewTradeForm({ticker}){
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if(!portfolioId) setPortfolioId(myPortfolios[0]?.id)
+
         const payload = {
-            portfolioId,
+            portfolio_id : portfolioId,
             ticker,
-            executionPrice,
-            executionType,
+            execution_price : executionPrice,
+            execution_type : executionType,
             quantity,
+            transaction_date : new Date()
         }
 
     const trade = await dispatch(createOneTrade(payload))
@@ -69,7 +73,7 @@ function NewTradeForm({ticker}){
                     onChange={updatePortfolioId}
                     >
                         {myPortfolios.map(portfolio=>(
-                            <option key={portfolio.id}>
+                            <option key={portfolio.id} value={portfolio.id}>
                             {portfolio.name}
                             </option>
                         ))}
