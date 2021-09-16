@@ -13,12 +13,13 @@ function Charts({portfolioName}) {
     const portfolios = useSelector((state) => Object.values(state.portfolios))
     const session = useSelector((state) => state.session)
     // const [count, setCount] = useState(0)
-    const [dataLoaded, setDataLoaded] = useState(false)
+    //const [dataLoaded, setDataLoaded] = useState(false)
+    const [dataLoaded, setDataLoaded] = useState(true)
     const [finalDataObject, setFinalDataObject] = useState({})
 
     useEffect(() => {
         dispatch(getPortfolios())
-    }, [dispatch])
+    }, [dispatch, portfolioName])
 
 
     const currentUser = session.user
@@ -60,12 +61,12 @@ function Charts({portfolioName}) {
         // console.log('the final data object is ', tickerData)
     }
 
-    useEffect(()=>{
-        const interval = setInterval(loadTickers, 200);
-        return () => {
-            clearInterval(interval)
-        }
-    }, [userPortfolio])
+    // useEffect(()=>{
+    //     const interval = setInterval(loadTickers, 200);
+    //     return () => {
+    //         clearInterval(interval)
+    //     }
+    // }, [userPortfolio])
 
 
     const portfolioBalanceHistory = {}
@@ -113,7 +114,7 @@ function Charts({portfolioName}) {
 
     useEffect(()=>{
         balanceScraper()
-    }, [dataLoaded])
+    }, [dataLoaded, portfolioName])
 
 
 
