@@ -87,6 +87,7 @@ function App() {
         <ProtectedRoute path='/dashboard' exact={true} >
           <SearchBar></SearchBar>
           {/* <GeneralNewsFeed /> */}
+          <Watchlist />
         </ProtectedRoute>
         <Route path='/charttest'>
           <Charts portfolioName='Technology'/>
