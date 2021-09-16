@@ -7,10 +7,6 @@ import './Dashboard.css'
 function PortfolioStats(){
     const dispatch = useDispatch()
 
-    
-    
-    
-    
     const portfolios = useSelector((state) => Object.values(state.portfolios))
     const session = useSelector((state) => state.session)
     
@@ -31,11 +27,7 @@ function PortfolioStats(){
 
     useEffect(() => {
         setPortDisplay(defaultPort?.name)
-    }, [defaultPort])
-
-
-
-
+    }, [defaultPort?.name])
 
     const changeState = (name) => {
         console.log(`name`, name)
@@ -71,7 +63,8 @@ function PortfolioStats(){
 
 
             <div className='port__chart'>
-                <Charts/>
+                {console.log('portDisplay = ', portDisplay)}
+                <Charts portfolioName={portDisplay}/>
 
             </div>
 
