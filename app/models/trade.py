@@ -16,3 +16,14 @@ class Trade(db.Model):
     transaction_date = db.Column(db.Date, nullable=False)
 
     portfolio = relationship("Portfolio", back_populates="trades")
+
+    def to_dict(self):
+        return {
+            'id' : self.id,
+            'portfolio_id' : self.portfolio_id,
+            'ticker' : self.ticker,
+            'execution_price' : str(self.execution_price),
+            'execution_type' : self.execution_type,
+            'quantity' : self.quantity,
+            'transaction_date' : self.transaction_date
+        }
