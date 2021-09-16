@@ -148,7 +148,7 @@ export default function portfolioReducer(state={}, action){
 
         case ADD_TRADE_TO_PORTFOLIO:
             let tradeState = { ...state }
-            tradeState[action.trades.portfolio_id].trades.push(action.trade)
+            tradeState[action.trade.portfolio_id].trades.push(action.trade)
             return tradeState
 
         default:
