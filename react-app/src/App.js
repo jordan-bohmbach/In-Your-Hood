@@ -15,8 +15,13 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
 import Charts from './components/Dashboard/Chart';
+import CreatePortfolioForm from './components/FormsTesting/CreatePortfolioForm';
+import CreateWatchlistForm from './components/FormsTesting/CreateWatchlistForm';
+import Watchlist from './components/Watchlist';
 import TradeHistory from './components/TradeHistory'
+
 import Profile from './components/Profile'
+import NewTradeForm from './components/NewTradeForm'
 
 
 import { authenticate } from './store/session';
@@ -59,7 +64,9 @@ function App() {
         <ProtectedRoute path='/account'>
             <Profile />
         </ProtectedRoute>
-        <Route path='/dashboard'> 
+
+        <Route path='/dashboard'>
+
             <Dashboard />
         </Route>
         <Route path='/login' exact={true}>
@@ -81,10 +88,21 @@ function App() {
           <SearchBar></SearchBar>
           {/* <GeneralNewsFeed /> */}
         </ProtectedRoute>
+        <Route path='/charttest'>
+            <Charts />
+        </Route>
+        <Route path='/formtest'>
+          <CreatePortfolioForm />
+          <CreateWatchlistForm />
+          <Watchlist />
+        </Route>
         <ProtectedRoute path='/:portfolio/trade-history'>
             <TradeHistory />
         </ProtectedRoute>
-        
+        <Route path='/tradeFormTest'>
+        <NewTradeForm></NewTradeForm>
+        </Route>
+
 
       </Switch>
     </BrowserRouter>

@@ -1,5 +1,6 @@
-from flask import Blueprint
-from ..models import Watchlist, WatchlistStock
+from app.models import portfolio
+from flask import Blueprint, request
+from ..models import Watchlist, WatchlistStock, db
 
 watchlist_routes = Blueprint('watchlists', __name__)
 
@@ -16,3 +17,40 @@ def watchlists():
         'owner_id' : watchlist.owner.id,
         'stocks' : [ watchlistStock.ticker for watchlistStock in watchlistStocks if watchlistStock.watchlist_id == watchlist.id]
     } for watchlist in watchlists]}
+
+
+@watchlist_routes.route('', methods=['POST'])
+def new_watchlist():
+    watchlist = Watchlist (
+        name=request.json['name'],
+        description=request.json['description'],
+        owner_id=int(request.json['owner_id']),
+    )
+
+    db.session.add(watchlist)
+    db.session.commit()
+
+    return watchlist.to_dict()
+
+
+@watchlist_routes.route('/<int:id>', methods=['PUT'])
+def edit_watchlist(id):
+    watchlist = Watchlist.query.get(id)
+    watchlist.name = request.json['name']
+    watchlist.description = request.json['description']
+    watchlist.owner_id = int(request.json['owner_id'])
+
+    db.session.add(watchlist)
+    db.session.commit()
+    
+    return watchlist.to_dict()
+
+
+@watchlist_routes.route('/<int:id>', methods=['DELETE'])
+def delete_watchlist(id):
+    watchlist = Watchlist.query.get(id)
+
+    db.session.delete(watchlist)
+    db.session.commit()
+
+    return {}
