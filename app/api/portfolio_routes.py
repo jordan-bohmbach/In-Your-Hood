@@ -1,5 +1,7 @@
+from app.models import portfolio
 from flask import Blueprint, request
 from ..models import Portfolio, Trade, db
+from datetime import datetime
 
 portfolio_routes = Blueprint('portfolios', __name__)
 
@@ -13,8 +15,10 @@ def portfolios():
         'id' : portfolio.id,
         'name' : portfolio.name,
         'description' : portfolio.description,
-        'balance' : float(portfolio.balance),
+        'current_cash_balance' : float(portfolio.current_cash_balance),
+        'starting_cash_balance' : float(portfolio.starting_cash_balance),
         'owner_id' : portfolio.owner.id,
+        'createdat' : portfolio.createdat,
         'trades' : [ {
             'id' : trade.id,
             'portfolio_id' : trade.portfolio_id,
@@ -34,8 +38,10 @@ def new_portfolio():
     portfolio = Portfolio (
         name=request.json['name'],
         description=request.json['description'],
-        balance=float(request.json['balance']),
-        owner_id=int(request.json['owner_id'])
+        current_cash_balance=float(request.json['balance']),
+        starting_cash_balance=float(request.json['initialBalance']),
+        owner_id=int(request.json['owner_id']),
+        createdat=datetime(request.json['createdat'])
         )
     db.session.add(portfolio)
     db.session.commit()
@@ -48,7 +54,6 @@ def edit_portfolio(id):
     portfolio = Portfolio.query.get(id)
     portfolio.name=request.json['name']
     portfolio.description=request.json['description']
-    portfolio.balance=float(request.json['balance'])
     portfolio.owner_id=int(request.json['owner_id'])
 
     db.session.add(portfolio)

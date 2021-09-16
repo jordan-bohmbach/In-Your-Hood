@@ -10,6 +10,7 @@ const CreatePortfolioForm = () => {
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
+    const [initialDeposit, setInitialDeposit] = useState(0)
 
     const reset = () => {
         setName('')
@@ -23,6 +24,7 @@ const CreatePortfolioForm = () => {
             name,
             description,
             balance: 0,
+            initialDeposit,
             owner_id: ownerId
         }
 
@@ -58,6 +60,15 @@ const CreatePortfolioForm = () => {
                         name='description'
                         value={description}
                         onChange={e => setDescription(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Initial Deposit
+                    <input
+                        type='number'
+                        name='initialDeposit'
+                        value={initialDeposit}
+                        onChange={e => setInitialDeposit(e.target.value)}
                     />
                 </label>
                 <button

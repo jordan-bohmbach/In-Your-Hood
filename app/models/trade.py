@@ -16,7 +16,3 @@ class Trade(db.Model):
     transaction_date = db.Column(db.Date, nullable=False)
 
     portfolio = relationship("Portfolio", back_populates="trades")
-
-    @property
-    def get_balance(self):
-        return self.balance
