@@ -8,7 +8,7 @@ function Splash(){
 
 return (
     <html>
-        
+
 
         <div className='slidein__layer1-black'></div>
         <div className='slidein__layer2-medGreen'></div>
@@ -17,13 +17,11 @@ return (
 
         <div className='sp__txt-top'>
             <p className='sp__text-1'>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-            mollit anim id est laborum."
+            "This application will allow a user to buy and sell stocks,
+            manage watchlists and watch live stock prices. This application
+            will be simple and easy to navigate. We are hoping that
+            people will enjoy the website that we have created and
+            will attract more users to use our website."
             </p>
             <button className='sp__demo-button'> Demo </button>
         </div>
@@ -32,40 +30,36 @@ return (
 
         <div className='sp__decal-left'>
             <div className='sp__left-image img'></div>
-           
+
         </div>
         <div className='sp__left-text'>
             <p className='sp__l-txt'>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-            mollit anim id est laborum."
+            "We have instilled a search feature that will allow
+            people to search stocks by state/community. This
+            will allow the user to be able to invest in their
+            own community."
             </p>
         </div>
-        
+
 
          <div className='sp__decal-right'>
             <div className='sp__right-image '></div>
-           
+
         </div>
         <div className='sp__right-text'>
             <p className='sp__2-txt'>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-            mollit anim id est laborum."
+            "We have added live charts to our website. This
+            will allow users to see the current price trend of
+            the stocks that they are watching or are intending
+            to buy or sell. This will help the user determine
+            when they should buy or sell stocks that they are
+            interested in."
             </p>
         </div>
 
         <div className='sp__header'>
             <div className='sp__logo'></div>
-            
+
             <a href='#' className='sp__livecharts-link'>Live Charts</a>
             <a href='#' className='sp_com-link'>Community</a>
             <a href='#' className='sp__aboutus-link'>About Us</a>
@@ -73,10 +67,10 @@ return (
             <a href='/login' className='sp__login-link'>Log In</a>
             <a href='/sign-up' className='sp__signup-link'>Sign Up</a>
 
-        </div> 
-        
-       
-    
+        </div>
+
+
+
     </html>
 )
 }
