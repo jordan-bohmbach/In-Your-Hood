@@ -6,6 +6,7 @@ import Watchlist from '../Watchlist'
 import PortfolioStats from './PortfolioStats.js'
 import NewTradeForm from '../NewTradeForm/NewTradeForm'
 import SearchBar from '../Header/SearchBar'
+import CreatePortfolioForm from './CreatePortfolioForm'
 
 function Dashboard(){
 
@@ -17,17 +18,16 @@ function Dashboard(){
             <SearchBar />
             <div className='sticky__items'>
                 <NewTradeForm />
-                
                 <Watchlist /> 
+                
             </div>
             <div className='dash__portfilioStats'>
                 <PortfolioStats />
-
+                <CreatePortfolioForm />
             </div>
 
             
 
-            <h1 className='news-feed__label'> News Feed </h1>
             <div className='dash__newsFeed'>
                 <NewsFeed />
             </div>

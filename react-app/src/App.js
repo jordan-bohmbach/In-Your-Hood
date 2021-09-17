@@ -15,7 +15,7 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
 import Charts from './components/Dashboard/Chart';
-import CreatePortfolioForm from './components/FormsTesting/CreatePortfolioForm';
+import CreatePortfolioForm from './components/Dashboard/CreatePortfolioForm';
 import CreateWatchlistForm from './components/FormsTesting/CreateWatchlistForm';
 import Watchlist from './components/Watchlist';
 import TradeHistory from './components/TradeHistory'

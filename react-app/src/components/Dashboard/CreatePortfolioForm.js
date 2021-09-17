@@ -38,7 +38,7 @@ const CreatePortfolioForm = () => {
     }
 
     return (
-        <>
+        <div className='create-portfolio-form'>
             <form
                 className='portfolio-form'
                 onSubmit={handleSubmit}
@@ -78,7 +78,7 @@ const CreatePortfolioForm = () => {
                 </button>
             </form>
             <Link to='/dashboard/' className='cancel-portfolio-button'>Cancel</Link>
-        </>
+        </div>
     )
 }
 

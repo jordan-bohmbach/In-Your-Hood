@@ -23,16 +23,9 @@
     width: 65%;
     height:fit-content;
     position: absolute;
-    top: 900px;
+    top: 1000px;
     /* border: 3px solid red;  */
     left: 100px;
-
-}
-
-.news-feed__label{
-    position:absolute;
-    top:820px;
-    left: 600px;
 
 }
 
@@ -93,4 +86,33 @@
     display:flex;
     
 
+}
+
+.create-portfolio-form {
+    border: 3px solid black;
+    border-radius: 30px;
+    margin-top: 100px;
+}
+
+.create-portfolio-form > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-stock-section {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 500px;
+    top: 250px
+}
+
+.portfolio-stock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portfolio-stock-ticker {
+    margin-right: 15px;
 }
