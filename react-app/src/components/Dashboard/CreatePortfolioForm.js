@@ -44,8 +44,8 @@ const CreatePortfolioForm = () => {
                 className='portfolio-form'
                 onSubmit={handleSubmit}
             >
-                <h2>Create a new Portfolio</h2>
-                <label>
+                <h2 className='newPort__label'>Create a new Portfolio</h2>
+                <label className='newPort__input'>
                     Name
                     <input
                         type="text"
@@ -54,7 +54,7 @@ const CreatePortfolioForm = () => {
                         onChange={e => setName(e.target.value)}
                     />
                 </label>
-                <label>
+                <label className='newPort__input'>
                     Description
                     <input
                         type='text'
@@ -63,7 +63,7 @@ const CreatePortfolioForm = () => {
                         onChange={e => setDescription(e.target.value)}
                     />
                 </label>
-                <label>
+                <label className='newPort__input'>
                     Initial Deposit
                     <input
                         type='number'
@@ -78,7 +78,9 @@ const CreatePortfolioForm = () => {
                     Create Portfolio
                 </button>
             </form>
-            <Link to='/dashboard/' className='cancel-portfolio-button'>Cancel</Link>
+            <div className='cancelPort__container'>
+                <Link to='/dashboard/' className='cancel-portfolio-button'>Cancel</Link>
+            </div>
         </div>
     )
 }

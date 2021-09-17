@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { createOneWatchlist } from "../../store/watchlist"
+import './Dashboard.css'
 
 const CreateWatchlistForm = () => {
     const dispatch = useDispatch()
@@ -43,7 +44,7 @@ const CreateWatchlistForm = () => {
                 onSubmit={handleSubmit}
             >
                 <h2>Create a new Watchlist</h2>
-                <label>
+                <label className='newPort__input'>
                     Name
                     <input
                         type="text"
@@ -52,7 +53,7 @@ const CreateWatchlistForm = () => {
                         onChange={e => setName(e.target.value)}
                     />
                 </label>
-                <label>
+                <label className='newPort__input'>
                     Description
                     <input
                         type='text'
@@ -61,12 +62,14 @@ const CreateWatchlistForm = () => {
                         onChange={e => setDescription(e.target.value)}
                     />
                 </label>
-                <button
-                    type="submit"
-                >
-                    Create Watchlist
-                </button>
-                <Link to='/dashboard/' className='cancel-watchlist-button'>Cancel</Link>
+                <div className='watchlist__buttons'>
+                    <button
+                        type="submit"
+                    >
+                        Create Watchlist
+                    </button>
+                    <Link to='/dashboard/' className='cancel-watchlist-button cancelPort__container'>Cancel</Link>
+                </div>
             </form>
         </>
     )

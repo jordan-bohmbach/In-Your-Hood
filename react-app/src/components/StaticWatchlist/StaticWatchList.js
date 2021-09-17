@@ -31,11 +31,11 @@ function StaticWatchlist() {
     return (
         <div className='watchlist-container'>
 
-            <h2>Watchlist</h2>
+            <h1 className='container__label'>Watchlist</h1>
 
             <div className='watchlist-selector'>
 
-                <form >
+                <form className='list__toggle'>
                     <select className='watchlist-toggle' onChange={((e) => setWatchlistName(e.target.value))}>
                         {watchlists.map((port) => (
                             <option value={port.name} key={port.id} >{port.name}</option>
@@ -48,7 +48,7 @@ function StaticWatchlist() {
 
             {myWatchList[0]?.stocks?.map((stock, index) => (
                 
-                <div>
+                <div className='data__row'> 
                     <a className='stock__link' href={`/stock/${stock}`}><p>{stock}</p></a>
                     <div className='buttons'>
                         <button className='buttons' ><img src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png" /></button>

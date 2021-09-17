@@ -24,9 +24,10 @@ function Dashboard(){
             </div>
             <div className='dash__portfilioStats'>
                 <PortfolioStats />
-                <CreatePortfolioForm />
+                
             </div>
-
+            
+                <CreatePortfolioForm />
                 <CreateWatchlistForm />
             
 
