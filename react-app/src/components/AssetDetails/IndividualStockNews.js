@@ -20,7 +20,6 @@ const IndividualStockNews = () => {
 
     return(
         <>
-            {console.log('stockNews = ', stockNews)}
             {stockNews.map(article => (
                 <ArticleTile article={article} key={article.id} />
             ))}

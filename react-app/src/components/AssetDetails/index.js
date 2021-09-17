@@ -63,33 +63,45 @@ function AssetDetails(){
 
            <div className='stock__information'>
                 <div className='stock__details'>
-                    <h1>About</h1>
-                    {console.log('company Overview = ', companyOverview)}
-                    <h2>{companyOverview?.Description}</h2>
-                    <h1>Company Profile</h1>
-                    <h2>Country : {companyProfile?.country}</h2>
-                    <h2>Exchange : {companyProfile?.exchange}</h2>
-                    <h2>IPO Date : {companyProfile?.ipo}</h2>
-                    {console.log('companyProfile = ', companyProfile)}
-                    <h1>Company Financials</h1>
+                    <h1 className='top__label'>About</h1>
+                    <h2 className='si__description'>{companyOverview?.Description}</h2>
+                    <h1 className='si__label'>Statistics</h1>
+                    <div className='si__stats'>
+                        <div className='si__stats-location'>
+                            <img className='stats__icon'src="https://img.icons8.com/ios-glyphs/30/000000/worldwide-location.png"/>
+                            <h3> Location: {companyProfile?.country}</h3>
+                        </div>
+                    
+                        <div className='si__stats-exchange'>
+                            <img className='stats__icon' src="https://img.icons8.com/ios-filled/50/000000/exchange.png"/>
+                            <h3>Exchange : {companyProfile?.exchange}</h3>
+                        </div>
+                        
+                        <div className='si__stats-IPO'>
+                            <img className='stats__icon' src="https://img.icons8.com/ios/50/000000/calendar--v1.png"/>
+                            <h3>IPO Date : {companyProfile?.ipo}</h3>
+                        </div>
+                        
+                    </div>
+                    <h1 className='si__label'>Financials</h1>
                     <div className='financial-details'>
                         <div className='left-financials'>
-                            <h2>Price Per Share : ${executionPrice}</h2>
-                            <h2>Market Cap : {companyProfile?.marketCapitalization}</h2>
-                            <h2>Shares Outstanding : {companyProfile?.shareOutstanding}</h2>
-                            <h2>PE Ratio : {companyOverview?.PERatio}</h2>
+                            <h3>Price Per Share : ${executionPrice}</h3>
+                            <h3>Market Cap : {companyProfile?.marketCapitalization}</h3>
+                            <h3>Shares Outstanding : {companyProfile?.shareOutstanding}</h3>
+                            <h3>PE Ratio : {companyOverview?.PERatio}</h3>
                         </div>
                         <div className='right-financials'>
                             {/* {console.log('basicFiancials.metric.52WeekHigh = ',basicFinancials?.metric['52WeekHigh'])} */}
-                            {basicFinancials? <h2>52 Week High : ${basicFinancials?.metric['52WeekHigh']}</h2> : ''}
-                            {basicFinancials? <h2>52 Week Low : ${basicFinancials?.metric['52WeekLow']}</h2> : ''}
-                            {basicFinancials ? <h2>Annual Dividend per Share: {basicFinancials?.metric['dividendPerShareAnnual']}</h2> : ''}
-                            <h2>Earnings Per Share : {companyOverview?.EPS}</h2>
+                            {basicFinancials? <h3>52 Week High : ${basicFinancials?.metric['52WeekHigh']}</h3> : ''}
+                            {basicFinancials? <h3>52 Week Low : ${basicFinancials?.metric['52WeekLow']}</h3> : ''}
+                            {basicFinancials ? <h3>Annual Dividend per Share: {basicFinancials?.metric['dividendPerShareAnnual']}</h3> : ''}
+                            <h3>Earnings Per Share : {companyOverview?.EPS}</h3>
                         </div>
                     </div>
-                    {console.log('basicFinancials = ', basicFinancials)}
                 </div>
                 <div className='stock__news'>
+                    <h1 className='news__label'> Company News </h1>
                     <IndividualStockNews /> 
                 </div>
            </div>
