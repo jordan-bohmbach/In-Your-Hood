@@ -30,15 +30,17 @@ const CreateWatchlistForm = () => {
 
         let createdWatchlist = await dispatch(createOneWatchlist(payload))
         if (createdWatchlist) {
-            console.log('here in react, the created watchlist is : ', createdWatchlist)
             history.push('/dashboard')
             reset()
         }
 
     }
 
+
+
+    
     return (
-        <>
+        <div className='create__watchlist-container'>
             <form
                 className='create-watchlist-form'
                 onSubmit={handleSubmit}
@@ -71,7 +73,7 @@ const CreateWatchlistForm = () => {
                     <Link to='/dashboard/' className='cancel-watchlist-button cancelPort__container'>Cancel</Link>
                 </div>
             </form>
-        </>
+        </div>
     )
 }
 

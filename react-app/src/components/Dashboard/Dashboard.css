@@ -10,6 +10,9 @@
     justify-content: center;
 } */
 
+.sticky__items{
+    border:3px solid blue;
+}
 .dash__portfilioStats{
     height: 467px;
     width: 50%;
@@ -19,6 +22,10 @@
     border-radius:30px;
     overflow:hidden;
 }
+
+
+
+
 
 .dash__newsFeed{
     width: 65%;
@@ -88,34 +95,29 @@
     
 
 }
-.create-portfolio-form{
-    margin-left: 200px;
-}
-
 
 .create-portfolio-form{
     border: 3px solid black;
     border-radius: 30px;
-    margin-top: 30px;
     padding: 20px;
     width: 400px;
     background-color:white;
+    margin-right: 50px;
 }
 
 .create-watchlist-form {
-    position: absolute;
-    right: 750px;
+   
  
     border: 3px solid black;
     border-radius: 30px;
-    /* margin-top: 30px; */
+  
     padding: 20px;
     width: 400px;
     background-color:white;
     top:82%;
     height:260px;
 
-}
+} 
 
 .newPort__label{
     display: flex;
@@ -206,4 +208,19 @@
     background-color:red;
     border:3px solid red; 
     border-radius: 10px;
+}
+
+.dash__forms-container{
+    width:900px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 400px;
+    margin-left: 200px;
+}
+
+.create__watchlist-container{
+    position: relative;
+    
 }
