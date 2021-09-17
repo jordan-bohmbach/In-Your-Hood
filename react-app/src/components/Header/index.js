@@ -14,16 +14,16 @@ function Header(){
 
     return(
         <div className='header'>
-            
+
             <div className='logo'></div>
-            
+
             <div className='head__search-bar'>
                 <SearchBar />
-                
+
             </div>
 
             <div className='links'>
-                
+
 
 
                 {user ? <Link to='/dashboard' className='sp__login-link'>DashBoard</Link> : ""}
@@ -32,7 +32,7 @@ function Header(){
                 {(!user) ? <a href='/sign-up' className='sp__signup-link'>Sign Up</a> : ""}
 
             </div>
-        </div>  
+        </div>
     )
 }
 
