@@ -22,7 +22,7 @@ import TradeHistory from './components/TradeHistory'
 
 import Header from './components/Header';
 
-import SlideMenu from './components/SlideMenu';
+// import SlideMenu from './components/SlideMenu';
 
 
 // import NewPortfolioForm from './components/Dashboard/NewPortfolioForm'
@@ -112,7 +112,7 @@ function App() {
         <NewTradeForm></NewTradeForm>
         </Route>
         <Route path='/list-style'>
-            <SlideMenu />
+            {/* <SlideMenu /> */}
         </Route>
 
 
