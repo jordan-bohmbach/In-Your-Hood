@@ -18,8 +18,13 @@ function StaticWatchlist() {
         dispatch(getWatchlists());
     }, [dispatch]);
 
-    const handleDelete = () => {
-        dispatch(deleteWatchlist(Number(watchlists.id)))
+    const handleDelete = (id) => {
+        dispatch(deleteWatchlist(id))
+    }
+
+    const deleteWatchlistItem = (ticker) => {
+        console.log('splicing out index : ', myWatchList[0].stocks.indexOf(ticker))
+        myWatchList[0].stocks.splice(myWatchList[0].stocks.indexOf(ticker))
     }
 
 
@@ -42,22 +47,17 @@ function StaticWatchlist() {
 
 
 
-            {myWatchList[0]?.stocks?.map((stock) => (
+            {myWatchList[0]?.stocks?.map((stock, index) => (
                 
                 <div className='data__row'> 
                     <a className='stock__link' href={`/stock/${stock}`}><p>{stock}</p></a>
                     <div className='buttons'>
                         <button className='buttons' ><img src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png" /></button>
-                        <button className='buttons deleteWatchlist' onClick={() => handleDelete(watchlists?.id)}><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png" /></button>
+                        <button className='buttons' className="deleteWatchlist" onClick={(e)=>deleteWatchlistItem(stock)}><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png" /></button>
                     </div>
                 </div>
             ))}
-
-
-
-
-
-
+            <button onClick={()=>handleDelete(myWatchList[0]?.id)}>Delete Watchlist</button>
 
         </div>
 

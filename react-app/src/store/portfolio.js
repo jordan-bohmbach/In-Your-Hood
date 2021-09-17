@@ -40,14 +40,16 @@ export const createOnePortfolio = (payload) => async dispatch => {
     const {
         name,
         description,
-        balance,
-        owner_id
+        current_cash_balance,
+        starting_cash_balance,
+        owner_id,
+        createdat
     } = payload
 
     const response = await fetch(`/api/portfolios`, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, description, balance, owner_id })
+        body: JSON.stringify({ name, description, current_cash_balance, starting_cash_balance, owner_id, createdat })
     });
 
     let newPortfolio
