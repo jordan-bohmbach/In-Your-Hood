@@ -18,7 +18,7 @@ class Watchlist(db.Model):
 
     def to_dict(self):
         return {
-            'id:' : self.id,
+            'id' : self.id,
             'name' : self.name,
             'description' : self.description,
             'owner_id' : self.owner_id,

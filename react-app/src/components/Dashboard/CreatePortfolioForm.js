@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { createOnePortfolio } from "../../store/portfolio"
+import { getPortfolios } from "../../store/portfolio"
 
 const CreatePortfolioForm = () => {
     const dispatch = useDispatch()
@@ -15,6 +16,7 @@ const CreatePortfolioForm = () => {
     const reset = () => {
         setName('')
         setDescription('')
+        setInitialDeposit(0)
     }
 
     const handleSubmit = async (e) => {
@@ -32,8 +34,9 @@ const CreatePortfolioForm = () => {
         let createdPortfolio = await dispatch(createOnePortfolio(payload))
         if (createdPortfolio) {
             console.log('here in react, the created portfolio is : ', createdPortfolio)
-            history.push('/dashboard')
+            getPortfolios()
             reset()
+            history.push('/dashboard')
         }
 
     }
