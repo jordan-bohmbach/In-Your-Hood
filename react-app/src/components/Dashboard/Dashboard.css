@@ -25,7 +25,7 @@
     position: absolute;
     top: 1100px;
     /* border: 3px solid red;  */
-    left: 100px;
+    left: 400px;
 
 }
 
@@ -87,22 +87,46 @@
     
 
 }
+.create-portfolio-form{
+    margin-left: 200px;
+}
 
-.create-portfolio-form, .create-watchlist-form {
+
+.create-portfolio-form{
     border: 3px solid black;
     border-radius: 30px;
-    margin-top: 100px;
+    margin-top: 30px;
     padding: 20px;
     width: 400px;
+    background-color:white;
 }
 
 .create-watchlist-form {
     position: absolute;
-    right: 700px;
+    right: 750px;
+ 
+    border: 3px solid black;
+    border-radius: 30px;
+    /* margin-top: 30px; */
+    padding: 20px;
     width: 400px;
+    background-color:white;
+    top:82%;
+    height:260px;
 
 }
 
+.newPort__label{
+    display: flex;
+    justify-content: center;
+}
+
+.newPort__input{
+   
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
 .create-portfolio-form > form {
     display: flex;
     flex-direction: column;
@@ -111,6 +135,7 @@
 .create-watchlist-form > form {
     display: flex;
     flex-direction: column;
+
 }
 
 .dashboard-stock-section {
@@ -118,15 +143,15 @@
     flex-direction: column;
     position: absolute;
     right: 420px;
-    top: 250px;
+    top: 300px;
     align-items: center;
     border: 3px solid black;
     border-radius: 30px;
     /* padding: 30px; */
     width:15%;
-    height: 440px;
+    height: 750px;
     background-color: white;
-    overflow-y: scroll;
+    overflow: auto;
     
 }
 
@@ -142,4 +167,32 @@
 
 .portfolio-stock-ticker {
     margin-right: 15px;
+}
+
+.cancel-portfolio-button{
+    text-decoration: none;
+    color:black;
+    
+}
+
+.cancel-watchlist-button{
+    text-decoration: none;
+    color:black;
+}
+
+.cancelPort__container{
+    width:355px;
+    border:2px solid black;
+    border-radius:8px;
+    display: flex;
+    justify-content: center;
+    margin-top:5px;
+    background: red 
+}
+
+
+.watchlist__buttons{
+    display:flex;
+    flex-direction: column;
+    margin-top:40px;
 }
