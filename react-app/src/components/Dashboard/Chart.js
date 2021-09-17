@@ -97,7 +97,7 @@ function Charts({portfolioName}) {
         portfolioBalanceHistory[dateToString(runningDate)] = userPortfolio?.starting_cash_balance
         // console.log('trades are', trades)
         const today = new Date()
-        let pastTradeCount = 0
+        let pastTradeCount = 1
         while (runningDate < today){
             // console.log('here on day ', runningDate)
 

@@ -34,14 +34,15 @@ def portfolios():
 
 @portfolio_routes.route('', methods=['POST'])
 def new_portfolio():
-
+    print('*'*100)
+    print(request.json)
     portfolio = Portfolio (
         name=request.json['name'],
         description=request.json['description'],
-        current_cash_balance=float(request.json['balance']),
-        starting_cash_balance=float(request.json['initialBalance']),
+        current_cash_balance=float(request.json['current_cash_balance']),
+        starting_cash_balance=float(request.json['starting_cash_balance']),
         owner_id=int(request.json['owner_id']),
-        createdat=datetime(request.json['createdat'])
+        createdat=datetime.strptime(request.json['createdat'][:-1], '%Y-%m-%dT%H:%M:%S.%f')
         )
     db.session.add(portfolio)
     db.session.commit()

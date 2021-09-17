@@ -35,13 +35,14 @@ export const createOneWatchlist = (payload) => async dispatch => {
     const {
         name,
         description,
-        owner_id
+        owner_id,
+        createdat
     } = payload
 
     const response = await fetch(`/api/watchlists`, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({name, description, owner_id})
+        body: JSON.stringify({name, description, owner_id, createdat})
     });
 
     let newWatchlist

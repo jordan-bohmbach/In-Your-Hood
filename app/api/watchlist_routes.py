@@ -1,6 +1,7 @@
 from app.models import portfolio
 from flask import Blueprint, request
 from ..models import Watchlist, WatchlistStock, db
+from datetime import datetime
 
 watchlist_routes = Blueprint('watchlists', __name__)
 
@@ -21,10 +22,13 @@ def watchlists():
 
 @watchlist_routes.route('', methods=['POST'])
 def new_watchlist():
+    print('*'*100)
+    print(request.json)
     watchlist = Watchlist (
         name=request.json['name'],
         description=request.json['description'],
         owner_id=int(request.json['owner_id']),
+        createdat=datetime.strptime(request.json['createdat'][:-1], '%Y-%m-%dT%H:%M:%S.%f')
     )
 
     db.session.add(watchlist)

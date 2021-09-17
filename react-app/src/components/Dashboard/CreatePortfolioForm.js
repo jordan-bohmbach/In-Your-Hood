@@ -23,9 +23,10 @@ const CreatePortfolioForm = () => {
         const payload = {
             name,
             description,
-            balance: 0,
-            initialDeposit,
-            owner_id: ownerId
+            current_cash_balance: initialDeposit,
+            starting_cash_balance: initialDeposit,
+            owner_id: ownerId,
+            createdat: new Date()
         }
 
         let createdPortfolio = await dispatch(createOnePortfolio(payload))

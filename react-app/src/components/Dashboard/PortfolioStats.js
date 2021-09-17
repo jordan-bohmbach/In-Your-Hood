@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { getPortfolios } from '../../store/portfolio'
 import Charts from './Chart.js'
 import './Dashboard.css'
+import { deletePortfolio } from '../../store/portfolio'
 
 function PortfolioStats(){
     const dispatch = useDispatch()
@@ -20,6 +21,7 @@ function PortfolioStats(){
     console.log(defaultPort)
     
     const [ portDisplay, setPortDisplay ] = useState(defaultPort?.name)
+    const [portId, setPortId] = useState(defaultPort?.id)
 
 
     useEffect(() => {
@@ -28,6 +30,7 @@ function PortfolioStats(){
 
     useEffect(() => {
         setPortDisplay(defaultPort?.name)
+        setPortId(defaultPort?.id)
     }, [defaultPort?.name])
 
     const changeState = (name) => {
@@ -35,11 +38,14 @@ function PortfolioStats(){
         console.log(`triggered`)
         
         setPortDisplay(name)
+        setPortId(portfolios.filter(portfolio => portfolio.name === name)[0].id)
         // console.log('Newstate:', portDisplay)
     }
     
   
-
+    const handleDelete = (id) => {
+        dispatch(deletePortfolio(id))
+    }
 
     //  let currVal = '';
     
@@ -66,7 +72,7 @@ function PortfolioStats(){
             <div className='port__chart'>
                 {console.log('portDisplay = ', portDisplay)}
                 <Charts portfolioName={portDisplay}/>
-                <button>Delete Portfolio</button>
+                <button onClick={()=>handleDelete(portId)}>Delete Portfolio</button>
             </div>
 
                 {/* {usrPorts.map((port) => (

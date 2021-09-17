@@ -23,7 +23,8 @@ const CreateWatchlistForm = () => {
             name,
             description,
             balance: 0,
-            owner_id: ownerId
+            owner_id: ownerId,
+            createdat: new Date()
         }
 
         let createdWatchlist = await dispatch(createOneWatchlist(payload))
