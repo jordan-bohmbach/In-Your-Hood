@@ -43,6 +43,7 @@ function Profile(){
                 {portfolios?.map((portfolio) => (
                     <>
                     {/* <h1 className='bs__label'>Account summary</h1> */}
+                    <p className='bs__label'>{portfolio.name}</p>
                     <p className='bs__label'>{portfolio.current_cash_balance}</p>
                     </>
                     // <div className='bs__portfolio-row'></div>
