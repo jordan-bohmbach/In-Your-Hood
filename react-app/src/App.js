@@ -15,11 +15,15 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard'
 import AssetDetails from './components/AssetDetails'
 import Charts from './components/Dashboard/Chart';
-import CreatePortfolioForm from './components/FormsTesting/CreatePortfolioForm';
-import CreateWatchlistForm from './components/FormsTesting/CreateWatchlistForm';
+import CreatePortfolioForm from './components/Dashboard/CreatePortfolioForm';
+import CreateWatchlistForm from './components/Dashboard/CreateWatchlistForm';
 import Watchlist from './components/Watchlist';
 import TradeHistory from './components/TradeHistory'
+
+import Header from './components/Header';
+
 import SlideMenu from './components/SlideMenu';
+
 
 // import NewPortfolioForm from './components/Dashboard/NewPortfolioForm'
 // import NewWatchlistForm from './components/Dashboard/NewWatchlistForm'
@@ -62,6 +66,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
+      <Header />
       <Switch>
         <Route path='/' exact={true}>
             <Splash />

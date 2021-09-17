@@ -6,6 +6,7 @@ import 'chartkick/chart.js'
 
 
 import { getPortfolios } from '../../store/portfolio'
+import PortfolioStock from './PortfolioStock'
 
 function Charts({portfolioName}) {
 
@@ -16,17 +17,30 @@ function Charts({portfolioName}) {
     //const [dataLoaded, setDataLoaded] = useState(false)
     const [dataLoaded, setDataLoaded] = useState(true)
     const [finalDataObject, setFinalDataObject] = useState({})
+    const [tickerArray, setTickerArray] = useState([])
 
     useEffect(() => {
         dispatch(getPortfolios())
     }, [dispatch, portfolioName])
 
+    let myTickers = new Set()
 
+    const getTickersInPortfolio = (trades) => {
+        trades?.forEach(trade => myTickers.add(trade.ticker))
+        console.log('mytickers = ', myTickers)
+        return Array.from(myTickers)
+    }
+
+    
+    
     const currentUser = session.user
     // const currentDate = new Date()
-
+    
     const userPortfolio = portfolios.filter((portfolio) =>  portfolio.owner_id === currentUser.id && portfolio.name === portfolioName)[0]
-    // console.log('userPortfolio = ', userPortfolio)
+    console.log('userPortfolio = ', userPortfolio)
+    useEffect(()=> {
+        setTickerArray(Array.from(getTickersInPortfolio(userPortfolio?.trades)))
+    },[userPortfolio?.trades])
 
     const tickerData ={'AAPL': ''}
     // let tickerSet = new Set()
@@ -125,10 +139,21 @@ function Charts({portfolioName}) {
 
     return (
 
+        <>
+            <div className='chart-area'>
+                {finalDataObject && <LineChart data={finalDataObject} />}
 
-        <div>
-            {finalDataObject && <LineChart data={finalDataObject} />}
-        </div>
+            </div>
+            <div className='dashboard-stock-section'>
+                <div className='stock-list-header'>{portfolioName}</div>
+                <div className='stock-list-header'>Stocks</div>
+                <div className='stock-list'>
+                    {tickerArray.map(ticker=> (
+                        <PortfolioStock ticker={ticker} />
+                    ))}
+                </div>
+            </div>
+        </>
 
 
     )

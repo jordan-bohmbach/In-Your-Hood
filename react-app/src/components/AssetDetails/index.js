@@ -55,7 +55,7 @@ function AssetDetails(){
 
     return(
         <div>
-            < Header />
+            {/* < Header /> */}
              <NewTradeForm ticker={ticker}/>
             < StockChart />
             {/* < Watchlist />  */}

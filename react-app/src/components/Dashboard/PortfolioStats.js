@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { getPortfolios } from '../../store/portfolio'
 import Charts from './Chart.js'
 import './Dashboard.css'
@@ -65,7 +66,7 @@ function PortfolioStats(){
             <div className='port__chart'>
                 {console.log('portDisplay = ', portDisplay)}
                 <Charts portfolioName={portDisplay}/>
-
+                <button>Delete Portfolio</button>
             </div>
 
                 {/* {usrPorts.map((port) => (

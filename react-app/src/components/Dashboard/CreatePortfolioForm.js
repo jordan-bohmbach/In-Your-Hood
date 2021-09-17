@@ -1,15 +1,16 @@
 import { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { createOneWatchlist } from "../../store/watchlist"
+import { createOnePortfolio } from "../../store/portfolio"
 
-const CreateWatchlistForm = () => {
+const CreatePortfolioForm = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const ownerId = useSelector(state => state.session.user.id)
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
+    const [initialDeposit, setInitialDeposit] = useState(0)
 
     const reset = () => {
         setName('')
@@ -23,12 +24,13 @@ const CreateWatchlistForm = () => {
             name,
             description,
             balance: 0,
+            initialDeposit,
             owner_id: ownerId
         }
 
-        let createdWatchlist = await dispatch(createOneWatchlist(payload))
-        if (createdWatchlist) {
-            console.log('here in react, the created watchlist is : ', createdWatchlist)
+        let createdPortfolio = await dispatch(createOnePortfolio(payload))
+        if (createdPortfolio) {
+            console.log('here in react, the created portfolio is : ', createdPortfolio)
             history.push('/dashboard')
             reset()
         }
@@ -36,12 +38,12 @@ const CreateWatchlistForm = () => {
     }
 
     return (
-        <>
+        <div className='create-portfolio-form'>
             <form
-                className='watchlist-form'
+                className='portfolio-form'
                 onSubmit={handleSubmit}
             >
-                <h2>Create a new Watchlist</h2>
+                <h2>Create a new Portfolio</h2>
                 <label>
                     Name
                     <input
@@ -60,15 +62,24 @@ const CreateWatchlistForm = () => {
                         onChange={e => setDescription(e.target.value)}
                     />
                 </label>
+                <label>
+                    Initial Deposit
+                    <input
+                        type='number'
+                        name='initialDeposit'
+                        value={initialDeposit}
+                        onChange={e => setInitialDeposit(e.target.value)}
+                    />
+                </label>
                 <button
                     type="submit"
                 >
-                    Create Watchlist
+                    Create Portfolio
                 </button>
             </form>
-            <Link to='/dashboard/' className='cancel-watchlist-button'>Cancel</Link>
-        </>
+            <Link to='/dashboard/' className='cancel-portfolio-button'>Cancel</Link>
+        </div>
     )
 }
 
-export default CreateWatchlistForm
+export default CreatePortfolioForm
