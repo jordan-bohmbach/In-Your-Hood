@@ -32,7 +32,7 @@ html{
     background-color:whitesmoke;
     border-radius:10px;
     position:fixed;
-    animation: slide-top 5s;
+    /* animation: slide-top 5s; */
     /* animation-delay:2.6s; */
 }
 
@@ -60,13 +60,11 @@ html{
     border-radius: 30px;
     background-color:#97B690;
     margin-right:20px;
-    position:fixed;
     right: 100px;
     
 }
 
 .sp__login-link{
-    position:fixed;
     right:15%;
     text-decoration: none;
     font-size: 30px;

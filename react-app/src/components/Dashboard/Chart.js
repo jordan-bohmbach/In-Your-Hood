@@ -139,16 +139,21 @@ function Charts({portfolioName}) {
 
     return (
 
+        <>
+            <div className='chart-area'>
+                {finalDataObject && <LineChart data={finalDataObject} />}
 
-        <div className='chart-area'>
-            {finalDataObject && <LineChart data={finalDataObject} />}
-
-            <div className='dashboard-stock-section'>
-                {tickerArray.map(ticker=> (
-                    <PortfolioStock ticker={ticker} />
-                ))}
             </div>
-        </div>
+            <div className='dashboard-stock-section'>
+                <div className='stock-list-header'>{portfolioName}</div>
+                <div className='stock-list-header'>Stocks</div>
+                <div className='stock-list'>
+                    {tickerArray.map(ticker=> (
+                        <PortfolioStock ticker={ticker} />
+                    ))}
+                </div>
+            </div>
+        </>
 
 
     )

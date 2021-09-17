@@ -38,7 +38,7 @@ const CreateWatchlistForm = () => {
     return (
         <>
             <form
-                className='watchlist-form'
+                className='create-watchlist-form'
                 onSubmit={handleSubmit}
             >
                 <h2>Create a new Watchlist</h2>
@@ -65,8 +65,8 @@ const CreateWatchlistForm = () => {
                 >
                     Create Watchlist
                 </button>
+                <Link to='/dashboard/' className='cancel-watchlist-button'>Cancel</Link>
             </form>
-            <Link to='/dashboard/' className='cancel-watchlist-button'>Cancel</Link>
         </>
     )
 }

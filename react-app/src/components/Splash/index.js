@@ -11,10 +11,10 @@ function Splash(){
         <html>
 
 
-            <div className='slidein__layer1-black'></div>
-            <div className='slidein__layer2-medGreen'></div>
-            <div className='slidein__layer3-lightGreen'></div>
-            <div className='slidein__layer4-beige'></div>
+            <div className='sliders slidein__layer1-black'></div>
+            <div className='sliders slidein__layer2-medGreen'></div>
+            <div className='sliders slidein__layer3-lightGreen'></div>
+            <div className='sliders slidein__layer4-beige'></div>
 
             <div className='sp__txt-top'>
                 <p className='sp__text-1'>
@@ -58,7 +58,7 @@ function Splash(){
                 </p>
             </div>
 
-            <div className='sp__header'>
+            {/* <div className='sp__header'>
                 <div className='sp__logo'></div>
 
                 <a href='#' className='sp__livecharts-link'>Live Charts</a>
@@ -71,7 +71,7 @@ function Splash(){
                 {(!user)? <Link to='/login' className='sp__login-link'>Log In</Link> : ""}
                 {(!user) ? <a href='/sign-up' className='sp__signup-link'>Sign Up</a> : ""}
 
-            </div>
+            </div> */}
 
 
 

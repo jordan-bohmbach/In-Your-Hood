@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom"
+
 const PortfolioStock = ({ticker}) => {
     return (
         <div className='portfolio-stock'>
             <div className='portfolio-stock-ticker'>{ticker}</div>
-            <button>Trade</button>
+                <Link to={`/stock/${ticker}`}><button>Trade</button></Link>
         </div>
     )
 }
