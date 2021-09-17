@@ -23,7 +23,8 @@ function StaticWatchlist() {
     }
 
     const deleteWatchlistItem = (ticker) => {
-        console.log(`Trying to delete watchlistitem with id: ${ticker}`)
+        console.log('splicing out index : ', myWatchList[0].stocks.indexOf(ticker))
+        myWatchList[0].stocks.splice(myWatchList[0].stocks.indexOf(ticker))
     }
 
 
