@@ -104,19 +104,20 @@ function Charts({portfolioName}) {
             let runningDateBalance = portfolioBalanceHistory[dateToString(runningDate)]
             // console.log('while loop condition here')
 
-            while(new Date(Date.parse(trades[pastTradeCount]?.transaction_date)) < getPreviousDayDate(runningDate)){ //while the first trade occured prior to the running date
-                if(trades[pastTradeCount].execution_type ==='BUY'){
-                    // console.log('execution price is ',trades[pastTradeCount].execution_price)
-                    // console.log('execution quantity is', trades[pastTradeCount].quantity)
-                    runningDateBalance -= parseFloat(trades[pastTradeCount].execution_price) * parseInt(trades[pastTradeCount].quantity)
-                    // console.log('executed a buy of ', trades[pastTradeCount])
-                } else {
-                    runningDateBalance += parseFloat(trades[pastTradeCount].execution_price) * parseInt(trades[pastTradeCount].quantity)
-                    // console.log('executed a sell of ', trades[pastTradeCount])
+            if(trades){
+                while(new Date(Date.parse(trades[pastTradeCount]?.transaction_date)) < getPreviousDayDate(runningDate)){ //while the first trade occured prior to the running date
+                    if(trades[pastTradeCount].execution_type ==='BUY'){
+                        // console.log('execution price is ',trades[pastTradeCount].execution_price)
+                        // console.log('execution quantity is', trades[pastTradeCount].quantity)
+                        runningDateBalance -= parseFloat(trades[pastTradeCount].execution_price) * parseInt(trades[pastTradeCount].quantity)
+                        // console.log('executed a buy of ', trades[pastTradeCount])
+                    } else {
+                        runningDateBalance += parseFloat(trades[pastTradeCount].execution_price) * parseInt(trades[pastTradeCount].quantity)
+                        // console.log('executed a sell of ', trades[pastTradeCount])
+                    }
+                    pastTradeCount++
                 }
-                pastTradeCount++
             }
-
 
             portfolioBalanceHistory[dateToString(getNextDayDate(runningDate))]=runningDateBalance
             runningDate = getNextDayDate(runningDate)

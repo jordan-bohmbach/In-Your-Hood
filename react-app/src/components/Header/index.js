@@ -15,7 +15,7 @@ function Header(){
     return(
         <div className='header'>
 
-            <div className='logo'></div>
+            <Link to='/dashboard'><div className='logo'></div></Link>
 
             <div className='head__search-bar'>
                 <SearchBar />

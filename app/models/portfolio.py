@@ -24,7 +24,7 @@ class Portfolio(db.Model):
 
     def to_dict(self):
         return {
-            'id:' : self.id,
+            'id' : self.id,
             'name' : self.name,
             'description' : self.description,
             'current_cash_balance' : str(self.current_cash_balance),

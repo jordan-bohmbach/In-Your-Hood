@@ -55,6 +55,7 @@ export const createOnePortfolio = (payload) => async dispatch => {
     let newPortfolio
     if (response.ok) {
         newPortfolio = await response.json();
+        console.log('newPortfolio = ', newPortfolio)
         dispatch(addOnePortfolio(newPortfolio))
     }
     return newPortfolio

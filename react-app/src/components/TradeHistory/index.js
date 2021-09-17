@@ -36,7 +36,7 @@ function TradeHistory(){
 
     return(
         <>
-             <Header />
+             {/* <Header /> */}
             <div className='port__title'>
                 {currentPort.map((port) => (
                     <h1>{port.name}</h1>
