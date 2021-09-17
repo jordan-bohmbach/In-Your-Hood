@@ -26,7 +26,7 @@ function Header(){
 
 
 
-                {user ? <Link to='/dashboard' className='sp__login-link'>DashBoard</Link> : ""}
+                {user ? <Link to='/account' className='sp__login-link'>Account</Link> : ""}
                 {user ? <Link to='/' onClick={onLogout} className='sp__signup-link'>Log Out</Link> : ""}
                 {(!user) ? <Link to='/login' className='sp__login-link'>Log In</Link> : ""}
                 {(!user) ? <a href='/sign-up' className='sp__signup-link'>Sign Up</a> : ""}

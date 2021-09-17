@@ -15,30 +15,21 @@ function Dashboard(){
 
 
         <div >
-            {/* <Header /> */}
-            {/* <SearchBar /> */}
             <div className='sticky__items'>
-                {/* <Watchlist />  */}
                 <StaticWatchlist />
-                
             </div>
+
             <div className='dash__portfilioStats'>
                 <PortfolioStats />
-                
             </div>
-            
+
+            <div className='dash__forms-container'>
                 <CreatePortfolioForm />
                 <CreateWatchlistForm />
-            
+            </div>
 
             <div className='dash__newsFeed'>
                 <NewsFeed />
-            </div>
-
-            <div className='jump-to-top'>
-
-                <img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-up-arrow-alignment-and-tools-kiranshastry-solid-kiranshastry.png" alt="NewsFeedImage"/>
-
             </div>
         </div>
     )
