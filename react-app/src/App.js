@@ -19,6 +19,7 @@ import CreatePortfolioForm from './components/FormsTesting/CreatePortfolioForm';
 import CreateWatchlistForm from './components/FormsTesting/CreateWatchlistForm';
 import Watchlist from './components/Watchlist';
 import TradeHistory from './components/TradeHistory'
+import SlideMenu from './components/SlideMenu';
 
 // import NewPortfolioForm from './components/Dashboard/NewPortfolioForm'
 // import NewWatchlistForm from './components/Dashboard/NewWatchlistForm'
@@ -106,7 +107,7 @@ function App() {
         <NewTradeForm></NewTradeForm>
         </Route>
         <Route path='/list-style'>
-            <Watchlist />
+            <SlideMenu />
         </Route>
 
 
