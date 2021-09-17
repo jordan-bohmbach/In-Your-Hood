@@ -2,7 +2,8 @@
 import './Profile.css'
 import Footer from '../Footer'
 import { useDispatch, useSelector } from 'react-redux'
-// import { useEffect } from 'react'
+import { useEffect } from 'react'
+import {getPortfolios} from '../../store/portfolio'
 
 function Profile(){
     const dispatch = useDispatch();
@@ -11,8 +12,19 @@ function Profile(){
     // const email = useSelector((state) => Object.values(state.email));
 
     const sessionUser = useSelector(state => state.session.user)
-    // const sessionPortfolio = useSelector(state => state.session.portfolio)
-    console.log(sessionUser)
+    const portfolios = useSelector((state) => Object.values(state.portfolios))
+    const portfolio = useSelector((state) =>Object.values(state.portfolios))
+
+    const usrPorts = portfolios.filter((port) =>  port.owner_id === sessionUser.id)
+
+    useEffect(() => {
+        dispatch(getPortfolios())
+    }, [dispatch])
+
+    const trades = usrPorts[0]?.portfolios
+
+    console.log('portfolios:', portfolio)
+
     return (
         <>
             <div className='userInfo__container'>
@@ -28,12 +40,13 @@ function Profile(){
 
             </div>
             <div className='balanceSummary__container'>
-                <h1 className='bs__label'>Account summary</h1>
-                {/* <h2 className='bs__label'>{sessionPortfolio.current_cash_balance}</h2> */}
-                <div className='bs__portfolio-row'>
-
-                </div>
-
+                {portfolios?.map((portfolio) => (
+                    <>
+                    {/* <h1 className='bs__label'>Account summary</h1> */}
+                    <p className='bs__label'>{portfolio.current_cash_balance}</p>
+                    </>
+                    // <div className='bs__portfolio-row'></div>
+                ))}
             </div>
 
             <Footer />
