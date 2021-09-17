@@ -65,7 +65,11 @@ function PortfolioStats(){
                    
                 
                 </select>
-              </form>  
+              </form> 
+
+               <button className='delete__port-button' onClick={()=>handleDelete(portId)}>Delete Portfolio</button>
+
+               
             </div>
             
 
@@ -73,7 +77,7 @@ function PortfolioStats(){
             <div className='port__chart'>
                 {console.log('portDisplay = ', portDisplay)}
                 <Charts portfolioName={portDisplay}/>
-                <button onClick={()=>handleDelete(portId)}>Delete Portfolio</button>
+                
             </div>
 
                 {displayBalance.map((port) => (
