@@ -1,3 +1,17 @@
+.container__label{
+    display: flex;
+    justify-content: center;
+}
+
+.list__toggle{
+    display: flex;
+    justify-content: center;
+    margin-bottom:10px;
+}
+
+.watchlist-toggle{
+    font-size:15px;
+}
 .watchlist-container {
     display:  flex;
     position: absolute;
@@ -8,5 +22,21 @@
     border-radius: 30px;
     padding: 20px;
     height: 440px;
-    width:15%
+    width:15%;
+    background-color: white;
+    overflow: auto;
+}
+
+
+.data__row{
+    border-bottom: 3px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:10px;
+    
+}
+
+.buttons:hover{
+    cursor: pointer;
 }
