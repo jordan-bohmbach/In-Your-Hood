@@ -47,7 +47,8 @@ function PortfolioStats(){
         dispatch(deletePortfolio(id))
     }
 
-    //  let currVal = '';
+    const displayBalance = usrPorts.filter((port) => port.name === portDisplay)
+    console.log(`####`,displayBalance)
     
     
     return (
@@ -75,14 +76,14 @@ function PortfolioStats(){
                 <button onClick={()=>handleDelete(portId)}>Delete Portfolio</button>
             </div>
 
-                {/* {usrPorts.map((port) => (
+                {displayBalance.map((port) => (
             <div className='tradeHistory__link'>        
-                    <h2 className='stats__balance'>$ {port.balance}</h2>
+                    <h2 className='stats__balance'>$ {port.current_cash_balance}</h2>
                     
                     <a className='th__link' href={`/${port.name}/trade-history`}>Trade History</a>
                     
             </div>    
-                ))} */}
+                ))}
                 
             
         </>    
