@@ -14,6 +14,10 @@ function Dashboard(){
     return(
 
 
+
+
+        
+
         <div >
             <div className='sticky__items'>
                 <StaticWatchlist />
