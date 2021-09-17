@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { createOneWatchlist } from "../../store/watchlist"
+import './Dashboard.css'
 
 const CreateWatchlistForm = () => {
     const dispatch = useDispatch()
