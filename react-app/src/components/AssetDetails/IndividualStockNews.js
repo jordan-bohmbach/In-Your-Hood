@@ -20,9 +20,10 @@ const IndividualStockNews = () => {
 
     return(
         <>
-            {stockNews.map(article => (
+
+            {stockNews.length ? stockNews.map(article => (
                 <ArticleTile article={article} key={article.id} />
-            ))}
+            )) : <h2>No news today for {ticker}</h2>}
         </>
     )
 }

@@ -23,7 +23,7 @@ import TradeHistory from './components/TradeHistory'
 import Header from './components/Header';
 
 // import SlideMenu from './components/SlideMenu';
-
+import './components/auth/auth.css'
 
 // import NewPortfolioForm from './components/Dashboard/NewPortfolioForm'
 // import NewWatchlistForm from './components/Dashboard/NewWatchlistForm'
