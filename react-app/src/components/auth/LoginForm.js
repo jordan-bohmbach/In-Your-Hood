@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 
+import './Auth.css'
+
 const LoginForm = () => {
-  const [errors, setErrors] = useState([]);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  let [errors, setErrors] = useState([]);
+  let [email, setEmail] = useState('');
+  let [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -30,35 +32,72 @@ const LoginForm = () => {
     return <Redirect to='/dashboard' />;
   }
 
+  const clearForm = () => {
+    const fieldEle = errors.length + email.length + password.length;
+    const emailField = document.getElementById('emailField')
+    const passwordField = document.getElementById('passwordField')
+    
+    if(fieldEle > 0){
+      console.log(`triggered`)
+      let tempErr = {...errors}
+      delete tempErr.email
+      delete tempErr.password
+      setPassword(tempErr);
+
+      emailField.innerHTML = '';
+      passwordField.innerHTML = ''; 
+    }
+    
+  }
+
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div className='login__bkg-1'>
+    <div className='login__logo-container'>
+    
+    </div>
+      <div className='login__form-container'>
+      <div className='form__welcome-top'></div>
+        <div className='login__errs-container'>
+            {errors.map((error, ind) => (
+              <div className='login__errors' key={ind}>{error}</div>
+            ))}
+          </div>
+        <form onSubmit={onLogin} className='login__form'>
+          
+          <div className='login__field'>
+            <label htmlFor='email' className='login__inputFiled'>Email</label>
+            <input
+              name='email'
+              type='text'
+              placeholder='Email'
+              id='emailField'
+              value={email}
+              onChange={updateEmail}
+              className='login__input'
+            />
+          </div>
+          <div className='login__field'>
+            <label htmlFor='password' className='login__inputFiled'>Password</label>
+            <input
+              name='password'
+              type='password'
+              placeholder='Password'
+              id='passwordField'
+              value={password}
+              onChange={updatePassword}
+              className='login__input'
+            />
+            
+          </div>
+          <button className='login__buttons login' type='submit'>Login</button>
+          <button className='login__buttons cancel' onClick={clearForm()}>Cancel</button>
+        </form>
+        <div className='login__txt-container'>
+          <p className='login__txt'>Don't have an account? Click <a className='link__singup' href='/singup'>Here </a> 
+           to sign up!</p>
+        </div>
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    </div>
   );
 };
 
