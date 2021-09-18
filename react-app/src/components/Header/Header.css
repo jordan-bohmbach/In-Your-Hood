@@ -10,16 +10,22 @@
 }
 
 .logo{
-    background-image: url(robinHoodfeather.png);
+    display: flex;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    height:70px;
+    height:50px;
     width: 200px;
     margin-top:20px;
-    margin-left:10px;
+    margin-left:40px;
     position:absolute;
 
 }
+
+.logo > a{
+    display: flex;
+    z-index: 1;
+}
+
 
 .head__search-bar{
     position:absolute;
