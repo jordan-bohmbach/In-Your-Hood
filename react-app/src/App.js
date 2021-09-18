@@ -24,7 +24,6 @@ import Header from './components/Header';
 
 // import SlideMenu from './components/SlideMenu';
 
-
 // import NewPortfolioForm from './components/Dashboard/NewPortfolioForm'
 // import NewWatchlistForm from './components/Dashboard/NewWatchlistForm'
 
@@ -69,7 +68,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
-      {/* <Header /> */}
+      <Header />
       <Switch>
         <Route path='/' exact={true}>
             <Splash />

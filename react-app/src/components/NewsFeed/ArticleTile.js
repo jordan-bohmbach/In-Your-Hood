@@ -3,31 +3,23 @@ import './ArticleTile.css'
 const ArticleTile = ({article}) => {
 
     const formatDate = (date) => {
-        const Transformededited = new Date(date)
+        let newDate= new Date(Date(date))
+        let day = newDate.getDate()+1
+        let month = newDate.getMonth()+1
+        let year = newDate.getFullYear()
+        let hour = newDate.getHours()
+        if(hour < 10) hour= '0'+hour
+        let minutes = newDate.getMinutes()
+        if (minutes < 10) minutes = '0' +minutes
 
-        const split = Transformededited.toString().split(" ")
-
-        const d = [split[0], split[1], split[2], split[3]]
-
-        const formattedDate = d.join(" ")
-
-        const splitTime = split[4].split(":")
-
-
-        if(splitTime[0] > 12){
-            const hour = splitTime[0] % 12
-            const formattedTime = [hour, splitTime[1]].join(":") + " PM"
-            const res = [formattedDate, formattedTime].join(", ")
-            return res
-
-
+        let appender
+        if(hour>12){
+            hour-=12
+            appender='PM'
+        } else {
+            appender='AM'
         }
-
-
-        const formattedTime = [splitTime[0], splitTime[1]].join(":") + " AM"
-        const res = [formattedDate, formattedTime].join(", ") // completed
-        return res
-
+        return `${month}/${day}/${year} ${hour}:${minutes} ${appender}`
     }
 
 
@@ -40,7 +32,7 @@ const ArticleTile = ({article}) => {
 
             <a className='headline' href={article.url}><h1>{article.headline}</h1></a>
 
-            <p className='date'>{Date(article.datetime)}</p>
+            <p className='date'>{formatDate(article.datetime)}</p>
 
             <img className='image' src={article.image} alt="not found"></img>
             <div className='article__summary'>
