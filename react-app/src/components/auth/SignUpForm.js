@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './Auth.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -42,52 +43,76 @@ const SignUpForm = () => {
     return <Redirect to='/' />;
   }
 
+  const reset = () => {
+    setEmail('')
+    setPassword('')
+  }
+
+
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div className='login__bkg-1'>
+    <div className='login__logo-container'>
+    
+    </div>
+      <div className='signup__form-container'>
+      <div className='signupform__welcome-top'></div>
+        <div>
+            {errors.map((error, ind) => (
+              <div key={ind}>{error}</div>
+            ))}
+          </div>
+        <form onSubmit={onSignUp} className='signup__form'>
+
+          <div className='login__field'>
+            <label className='login__inputFiled'>User Name</label>
+            <input
+              type='text'
+              name='username'
+              onChange={updateUsername}
+              value={username}
+              className='login__input'
+            ></input>
+          </div>
+          <div className='login__field'>
+            <label className='login__inputFiled'>Email</label>
+            <input
+              type='text'
+              name='email'
+              onChange={updateEmail}
+              value={email}
+              className='login__input'
+            ></input>
+          </div>
+          <div className='login__field'>
+            <label className='login__inputFiled'>Password</label>
+            <input
+              type='password'
+              name='password'
+              onChange={updatePassword}
+              value={password}
+              className='login__input'
+            ></input>
+          </div>
+          <div className='login__field'>
+            <label className='login__inputFiled'>Repeat Password</label>
+            <input
+              type='password'
+              name='repeat_password'
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+              required={true}
+              className='login__input'
+            ></input>
+          </div>
+          <button className='login__buttons signup' type='submit'>Sign Up</button>
+          <button className='login__buttons cancel' type='reset' onClick={reset}>Cancel</button>
+        </form>
+        <div className='login__txt-container'>
+          <p className='login__txt'>Don't have an account? Click <a className='link__singup' href='/singup'>Here </a> 
+           to sign up!</p>
+        </div>
       </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type='text'
-          name='username'
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
-    </form>
+    </div>
   );
 };
 
