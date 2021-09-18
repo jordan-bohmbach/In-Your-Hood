@@ -29,6 +29,9 @@ import Header from './components/Header';
 // import NewWatchlistForm from './components/Dashboard/NewWatchlistForm'
 
 
+
+
+
 import Profile from './components/Profile'
 
 import NewTradeForm from './components/NewTradeForm/NewTradeForm'
@@ -66,7 +69,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route path='/' exact={true}>
             <Splash />
