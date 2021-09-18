@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import { useHistory } from 'react-router';
 
 import './auth.css'
 
 const LoginForm = () => {
+  const history = useHistory()
   let [errors, setErrors] = useState([]);
   let [email, setEmail] = useState('');
   let [password, setPassword] = useState('');
@@ -20,9 +22,6 @@ const LoginForm = () => {
     }
   };
 
-
-
-
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -35,23 +34,10 @@ const LoginForm = () => {
     return <Redirect to='/dashboard' />;
   }
 
-  // const clearForm = () => {
-  //   const fieldEle = errors.length + email.length + password.length;
-  //   const emailField = document.getElementById('emailField')
-  //   const passwordField = document.getElementById('passwordField')
-    
-  //   if(fieldEle > 0){
-  //     console.log(`triggered`)
-  //     let tempErr = {...errors}
-  //     delete tempErr.email
-  //     delete tempErr.password
-  //     setPassword(tempErr);
-
-  //     emailField.innerHTML = '';
-  //     passwordField.innerHTML = ''; 
-  //   }
-    
-  // }
+  const reset = () => {
+    setEmail('')
+    setPassword('')
+  }
 
   return (
     <div className='login__bkg-1'>
@@ -65,7 +51,7 @@ const LoginForm = () => {
               <div className='login__errors' key={ind}>{error}</div>
             ))}
           </div>
-        <form onSubmit={onLogin} className='login__form'>
+        <form className='login__form'>
           
           <div className='login__field'>
             <label htmlFor='email' className='login__inputFiled'>Email</label>
@@ -92,8 +78,8 @@ const LoginForm = () => {
             />
             
           </div>
-          <button className='login__buttons login' type='submit'>Login</button>
-          <button className='login__buttons cancel'>Cancel</button>
+          <button className='login__buttons login' type='submit' onClick={onLogin}>Login</button>
+          <button className='login__buttons cancel' type='reset' onClick={reset}>Cancel</button>
         </form>
         <div className='login__txt-container'>
           <p className='login__txt'>Don't have an account? Click <a className='link__singup' href='/singup'>Here </a> 
