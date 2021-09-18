@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 
-import './Auth.css'
+import './auth.css'
 
 const LoginForm = () => {
   let [errors, setErrors] = useState([]);
@@ -35,23 +35,23 @@ const LoginForm = () => {
     return <Redirect to='/dashboard' />;
   }
 
-  const clearForm = () => {
-    const fieldEle = errors.length + email.length + password.length;
-    const emailField = document.getElementById('emailField')
-    const passwordField = document.getElementById('passwordField')
+  // const clearForm = () => {
+  //   const fieldEle = errors.length + email.length + password.length;
+  //   const emailField = document.getElementById('emailField')
+  //   const passwordField = document.getElementById('passwordField')
     
-    if(fieldEle > 0){
-      console.log(`triggered`)
-      let tempErr = {...errors}
-      delete tempErr.email
-      delete tempErr.password
-      setPassword(tempErr);
+  //   if(fieldEle > 0){
+  //     console.log(`triggered`)
+  //     let tempErr = {...errors}
+  //     delete tempErr.email
+  //     delete tempErr.password
+  //     setPassword(tempErr);
 
-      emailField.innerHTML = '';
-      passwordField.innerHTML = ''; 
-    }
+  //     emailField.innerHTML = '';
+  //     passwordField.innerHTML = ''; 
+  //   }
     
-  }
+  // }
 
   return (
     <div className='login__bkg-1'>
@@ -93,7 +93,7 @@ const LoginForm = () => {
             
           </div>
           <button className='login__buttons login' type='submit'>Login</button>
-          <button className='login__buttons cancel' onClick={clearForm()}>Cancel</button>
+          <button className='login__buttons cancel'>Cancel</button>
         </form>
         <div className='login__txt-container'>
           <p className='login__txt'>Don't have an account? Click <a className='link__singup' href='/singup'>Here </a> 
