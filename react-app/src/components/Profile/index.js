@@ -33,20 +33,34 @@ function Profile(){
                 </div>
 
                 <div className='userInfo__details'>
-                    <h1>{sessionUser.firstname} {sessionUser.lastname}</h1>
-                    <h3>{sessionUser.username}</h3>
-                    <h4>{sessionUser.email}</h4>
+                    <h1 className='profile__name-display'>Hello! {sessionUser.firstname} {sessionUser.lastname}</h1>
+                    
+                    <div className='usrInfo__field'>
+                        <p>username: </p>
+                        <p className='profile__username-display'>{sessionUser.username}</p>
+                    </div>
+                    
+                    
+                    <div className='usrInfo__field'>
+                        <p>email: </p>
+                        <p className='usr__email'>{sessionUser.email}</p>
+                    </div>
                 </div>
 
             </div>
+            <h1 className='profile__label-balance'>Portfolio Balance Summary</h1>
             <div className='balanceSummary__container'>
                 {portfolios?.map((portfolio) => (
                     <>
-                    {/* <h1 className='bs__label'>Account summary</h1> */}
-                    <p className='bs__label'>{portfolio.name}</p>
-                    <p className='bs__label'>{portfolio.current_cash_balance}</p>
+                        <div className='profile__datarow'> 
+                            <div className='profile__port-name'>
+                                <p className='bs__label'>{portfolio.name}</p>
+                            </div>
+                            <div className='profile__port-balance'>
+                                <p className='bs__label'>{portfolio.current_cash_balance}</p>
+                            </div>
+                        </div>
                     </>
-                    // <div className='bs__portfolio-row'></div>
                 ))}
             </div>
 
