@@ -54,8 +54,7 @@ function StaticWatchlist() {
                     <div className='data__row' key={index}> 
                         <a className='stock__link' href={`/stock/${stock}`}><p>{stock}</p></a>
                         <div className='buttons'>
-                            <button className='buttons' ><img src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png" alt='not found'/></button>
-                            <button className="deleteWatchlist" onClick={(e)=>deleteWatchlistItem(stock)}><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png" alt='not found'/></button>
+                            <button className='buttons' className="deleteWatchlist" onClick={(e)=>deleteWatchlistItem(stock)}><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png" /></button>
                         </div>
                     </div>
                 ))}

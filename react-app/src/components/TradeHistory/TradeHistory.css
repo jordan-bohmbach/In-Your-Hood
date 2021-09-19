@@ -1,15 +1,23 @@
 .th__port-state{
     height: 300px;
     width:60%;
-    border: 3px solid goldenrod;
+    
     margin-left:20%;
 }
 
 .port__title{
     display: flex;
+    flex-direction:column;
     justify-content: center;
+    position:absolute;
+    left:50px;
+    top:200px;
 }
 
+.port__name{
+    margin-left:20px;
+    margin-top:-10;
+}
 .th__container-label{
     display:flex;
     justify-content: space-evenly;
