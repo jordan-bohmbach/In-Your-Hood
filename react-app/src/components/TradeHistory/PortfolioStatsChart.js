@@ -1,6 +1,6 @@
 import { PieChart } from 'react-chartkick'
 import 'chartkick/chart.js'
-// import PortfolioStats from '../Dashboard/PortfolioStats'
+
 
 
 function PortfolioStatsChart({trades}){
@@ -13,15 +13,16 @@ function PortfolioStatsChart({trades}){
             let x = values[i]
             const [ ticker, quantity, price] = x
             const dollarAmount = quantity * price
-            res.push(Array([ticker, dollarAmount]))
+            res.push([ticker, dollarAmount])
         }
         return res
     }
 
-
+    console.log(`trade history chart`, calculateDollarAmount(values))
 
     return(
         <PieChart data={calculateDollarAmount(values)} />
+        // <PieChart data={[["Blueberry", 44], ["Strawberry", 23]]} />
     )
 }
 
