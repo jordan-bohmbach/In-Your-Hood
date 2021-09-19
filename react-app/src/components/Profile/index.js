@@ -7,23 +7,19 @@ import {getPortfolios} from '../../store/portfolio'
 
 function Profile(){
     const dispatch = useDispatch();
-    // const usernames = useSelector((state) => Object.values(state.usernames));
-    // const username = useSelector((state) => Object.values(state.usernames));
-    // const email = useSelector((state) => Object.values(state.email));
 
     const sessionUser = useSelector(state => state.session.user)
     const portfolios = useSelector((state) => Object.values(state.portfolios))
-    const portfolio = useSelector((state) =>Object.values(state.portfolios))
 
-    const usrPorts = portfolios.filter((port) =>  port.owner_id === sessionUser.id)
+    // const usrPorts = portfolios.filter((port) =>  port.owner_id === sessionUser.id)
 
     useEffect(() => {
         dispatch(getPortfolios())
     }, [dispatch])
 
-    const trades = usrPorts[0]?.portfolios
+    // const trades = usrPorts[0]?.portfolios
 
-    console.log('portfolios:', portfolio)
+    // console.log('portfolios:', portfolio)
 
     return (
         <>

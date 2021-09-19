@@ -33,7 +33,6 @@ const CreatePortfolioForm = () => {
 
         let createdPortfolio = await dispatch(createOnePortfolio(payload))
         if (createdPortfolio) {
-            console.log('here in react, the created portfolio is : ', createdPortfolio)
             getPortfolios()
             reset()
             history.push('/dashboard')

@@ -17,7 +17,6 @@ const NewsFeed = () => {
             .then((res)=>setGeneralNews(res))
     }
 
-    console.log(generalNews)
     return(
         <div className="newsFeed__container">
             {generalNews.map(article => (

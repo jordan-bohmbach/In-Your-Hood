@@ -86,10 +86,10 @@ function NewTradeForm({ticker}){
                 <label className='trade__form-fields'>Execution Type
                     <select
                     value={executionType}
-                    onChange={setExecutionType}
+                        onChange={updateExecutionType}
                     >
-                        <option key={"BUY"}>BUY</option>
-                        <option key={"SELL"}>SELL</option>
+                        <option value={'BUY'} key={"BUY"}>BUY</option>
+                        <option value={'SELL'} key={"SELL"}>SELL</option>
                     </select>
                 </label>
 
