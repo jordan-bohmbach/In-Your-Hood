@@ -32,7 +32,7 @@ function PortfolioStats(){
     }
 
     const changePortfolio = (id) => {
-        setPortfolio(portfolios?.filter(portfolio=> portfolio.id === id)[0])
+        setPortfolio(portfolios?.filter(portfolio=> portfolio.id === parseInt(id))[0])
     }
     
     return (
