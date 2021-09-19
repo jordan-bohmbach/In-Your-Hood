@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import { useHistory } from 'react-router';
 
-import './auth.css'
+import './Auth.css'
 
 const LoginForm = () => {
   const history = useHistory()
