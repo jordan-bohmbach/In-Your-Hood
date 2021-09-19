@@ -13,10 +13,6 @@ function Header(){
     const user = useSelector(state => state.session.user);
 
 
-
-
-
-    
     return(
         <div className='header'>
 

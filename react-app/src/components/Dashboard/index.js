@@ -1,21 +1,14 @@
 import './Dashboard.css'
 
 import NewsFeed from '../NewsFeed'
-import Header from '../Header'
-import Watchlist from '../Watchlist'
 import StaticWatchlist from '../StaticWatchlist/StaticWatchList'
 import PortfolioStats from './PortfolioStats.js'
-import SearchBar from '../Header/SearchBar'
 import CreatePortfolioForm from './CreatePortfolioForm'
 import CreateWatchlistForm from './CreateWatchlistForm'
-import { useHistory } from 'react-router'
-import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+
 
 function Dashboard(){
-    const history = useHistory()
 
-    const user = useSelector(state => state.session.user)
 
 
     return(
