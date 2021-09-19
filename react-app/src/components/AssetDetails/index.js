@@ -5,9 +5,20 @@ import IndividualStockNews from './IndividualStockNews'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import NewTradeForm from '../NewTradeForm/NewTradeForm';
-
+import { useDispatch, useSelector } from 'react-redux'
 
 function AssetDetails(){
+
+
+
+
+    const portfolios = useSelector((state) => Object.values(state.portfolios))
+    const session = useSelector((state) => state.session).user
+
+
+    const usrsPorts = portfolios.filter((port) => port.owner_id === session.id)
+    
+
     const { ticker } = useParams()
     const [executionPrice, setExecutionPrice] = useState('')
     const [companyProfile, setCompanyProfile] = useState(null)
@@ -57,7 +68,16 @@ function AssetDetails(){
              <NewTradeForm ticker={ticker}/>
             < StockChart />
             {/* < Watchlist />  */}
-           
+           <div className='add__stock-container'>
+                <h4>Add This stock To A Watchlist</h4>
+                <select className='select__port-input'>
+                    {usrsPorts.map((port) => (
+                        <option id={port.id} value={port.name}>{port.name}</option> 
+                    ))}
+                    
+                </select>
+                <button className='add__stock-button' type='submit'>Add</button>
+           </div>
 
            <div className='stock__information'>
                 <div className='stock__details'>
