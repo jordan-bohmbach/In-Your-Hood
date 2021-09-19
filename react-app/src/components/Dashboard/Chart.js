@@ -113,7 +113,7 @@ function Charts({portfolio}) {
         console.log('before making the tickerarray, the portfolio = ', portfolio)
         let newArr = []
         let tickerSet = new Set()
-        portfolio.trades.forEach(trade=> {
+        portfolio.trades?.forEach(trade=> {
             if(!tickerSet.has(trade.ticker)){
                 tickerSet.add(trade.ticker)
                 newArr.push(trade.ticker)
