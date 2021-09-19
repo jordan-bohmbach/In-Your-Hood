@@ -32,7 +32,6 @@ const remove = (portfolioId) => ({
 export const getPortfolios = () => async(dispatch) => {
     const response = await fetch(`/api/portfolios`);
     const portfolioList = await response.json()
-    console.log('portfolioList = ', portfolioList)
     dispatch(loadPortfolios(portfolioList))
 }
 
@@ -55,7 +54,6 @@ export const createOnePortfolio = (payload) => async dispatch => {
     let newPortfolio
     if (response.ok) {
         newPortfolio = await response.json();
-        console.log('newPortfolio = ', newPortfolio)
         dispatch(addOnePortfolio(newPortfolio))
     }
     return newPortfolio
@@ -112,7 +110,6 @@ export const deletePortfolio = portfolioId => async dispatch => {
 export default function portfolioReducer(state={}, action){
     switch (action.type) {
         case LOAD_PORTFOLIOS:
-            console.log(action)
             const newPortfolios = {}
             action['portfolios'].portfolios.forEach(portfolio => {
                 newPortfolios[portfolio.id] = portfolio;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { LineChart } from 'react-chartkick'
 import 'chartkick/chart.js'
 
@@ -9,10 +9,9 @@ import { getPortfolios } from '../../store/portfolio'
 import PortfolioStock from './PortfolioStock'
 
 function Charts({portfolio}) {
-    console.log('in the chart component the portfolio is', portfolio)
     const dispatch = useDispatch()
-    const currentUser = useSelector((state) => state.session).user
-    const [dataLoaded, setDataLoaded] = useState(true)
+    // const currentUser = useSelector((state) => state.session).user
+    // const [dataLoaded, setDataLoaded] = useState(true)
     const [finalDataObject, setFinalDataObject] = useState({})
     const [tickerArray, setTickerArray] = useState([])
 
@@ -20,38 +19,38 @@ function Charts({portfolio}) {
         dispatch(getPortfolios())
     }, [dispatch, portfolio])
 
-    const tickerData ={'AAPL': ''}
+    // const tickerData ={'AAPL': ''}
     // let tickerSet = new Set()
 
-    let count = 0
-    const loadTickers = () => {
+    // let count = 0
+    // const loadTickers = () => {
 
-        if (count < portfolio?.trades.length-1) {
-            const url = `https://finnhub.io/api/v1/stock/candle?symbol=${portfolio.trades[count].ticker}&resolution=D&from=${Math.round((new Date()) / 1000) - (364 * 24 * 60 * 60)}&to=${Math.round(new Date() / 1000)}&token=c4uiisiad3ie1t1fvu90`
-            fetch(url)
-                .then((res) => res.json())
-                .then((res) => tickerData[portfolio.trades[count].ticker] = res)
-            cleandata()
-            cleandata()
-            cleandata()
-            count++
-        } else {
-            setDataLoaded(true)
-        }
+    //     if (count < portfolio?.trades.length-1) {
+    //         const url = `https://finnhub.io/api/v1/stock/candle?symbol=${portfolio.trades[count].ticker}&resolution=D&from=${Math.round((new Date()) / 1000) - (364 * 24 * 60 * 60)}&to=${Math.round(new Date() / 1000)}&token=c4uiisiad3ie1t1fvu90`
+    //         fetch(url)
+    //             .then((res) => res.json())
+    //             .then((res) => tickerData[portfolio.trades[count].ticker] = res)
+    //         cleandata()
+    //         cleandata()
+    //         cleandata()
+    //         count++
+    //     } else {
+    //         setDataLoaded(true)
+    //     }
 
-    }
+    // }
 
-    const cleandata = () => {
-        for (let key in tickerData){
-            if(tickerData[key].s !== 'ok') {
-                const url = `https://finnhub.io/api/v1/stock/candle?symbol=${key}&resolution=D&from=${Math.round((new Date()) / 1000) - (364 * 24 * 60 * 60)}&to=${Math.round(new Date() / 1000)}&token=c4uiisiad3ie1t1fvu90`
-                fetch(url)
-                    .then((res) => res.json())
-                    .then((res) => tickerData[key] = res)
-            }
-        }
-        // console.log('the final data object is ', tickerData)
-    }
+    // const cleandata = () => {
+    //     for (let key in tickerData){
+    //         if(tickerData[key].s !== 'ok') {
+    //             const url = `https://finnhub.io/api/v1/stock/candle?symbol=${key}&resolution=D&from=${Math.round((new Date()) / 1000) - (364 * 24 * 60 * 60)}&to=${Math.round(new Date() / 1000)}&token=c4uiisiad3ie1t1fvu90`
+    //             fetch(url)
+    //                 .then((res) => res.json())
+    //                 .then((res) => tickerData[key] = res)
+    //         }
+    //     }
+    //     // console.log('the final data object is ', tickerData)
+    // }
 
     // useEffect(()=>{
     //     const interval = setInterval(loadTickers, 200);
@@ -107,19 +106,17 @@ function Charts({portfolio}) {
 
     useEffect(()=>{
         balanceScraper()
-    }, [dataLoaded, portfolio])
+    }, [portfolio])
 
     useEffect(()=> {
-        console.log('before making the tickerarray, the portfolio = ', portfolio)
         let newArr = []
         let tickerSet = new Set()
-        portfolio.trades?.forEach(trade=> {
+        portfolio.trades.forEach(trade=> {
             if(!tickerSet.has(trade.ticker)){
                 tickerSet.add(trade.ticker)
                 newArr.push(trade.ticker)
             }
         })
-        console.log('setting the tickerarray to ', newArr)
         setTickerArray(newArr)
     }, [portfolio])
 
@@ -137,7 +134,7 @@ function Charts({portfolio}) {
                 <div className='stock-list-header'>Stocks</div>
                 <div className='stock-list'>
                     {tickerArray?.map(ticker=> (
-                        <PortfolioStock ticker={ticker} />
+                        <PortfolioStock ticker={ticker} key={ticker}/>
                     ))}
                 </div>
             </div>

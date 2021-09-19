@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 // import { useParams } from 'react-router';
-import { getWatchlists, createOneWatchlist, updateWatchlist, deleteWatchlist } from '../../store/watchlist';
+import { getWatchlists, deleteWatchlist } from '../../store/watchlist';
 
 import './Watchlist.css'
 
@@ -40,8 +40,8 @@ function Watchlist(){
                             <div className='inner__content'>
                             <a className='stock__link'href={`/stock/${stock}`}><p>{stock}</p></a>
                             <div className='buttons'>
-                                <button className='buttons' ><img src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png"/></button>
-                                <button className='buttons' className="deleteWatchlist" onClick={() => handleDelete(watchlists?.id)}><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png"/></button>
+                                <button className='buttons' ><img src="https://img.icons8.com/material-outlined/24/000000/edit--v1.png" alt='not found'/></button>
+                                <button className="deleteWatchlist" onClick={() => handleDelete(watchlists?.id)}><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png" alt='not found'/></button>
                             </div>    
                             </div>
                         ))}

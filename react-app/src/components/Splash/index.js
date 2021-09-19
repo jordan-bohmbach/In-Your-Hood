@@ -1,14 +1,11 @@
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import './Splash.css'
 
 
 
 function Splash(){
-    const user = useSelector(state => state.session.user);
 
     return (
-        <html>
+        <>
 
 
             <div className='sliders slidein__layer1-black'></div>
@@ -75,7 +72,7 @@ function Splash(){
 
 
 
-        </html>
+        </>
     )
 }
 export default Splash;
