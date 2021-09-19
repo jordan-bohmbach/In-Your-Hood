@@ -7,23 +7,19 @@ import {getPortfolios} from '../../store/portfolio'
 
 function Profile(){
     const dispatch = useDispatch();
-    // const usernames = useSelector((state) => Object.values(state.usernames));
-    // const username = useSelector((state) => Object.values(state.usernames));
-    // const email = useSelector((state) => Object.values(state.email));
 
     const sessionUser = useSelector(state => state.session.user)
     const portfolios = useSelector((state) => Object.values(state.portfolios))
-    const portfolio = useSelector((state) =>Object.values(state.portfolios))
 
-    const usrPorts = portfolios.filter((port) =>  port.owner_id === sessionUser.id)
+    // const usrPorts = portfolios.filter((port) =>  port.owner_id === sessionUser.id)
 
     useEffect(() => {
         dispatch(getPortfolios())
     }, [dispatch])
 
-    const trades = usrPorts[0]?.portfolios
+    // const trades = usrPorts[0]?.portfolios
 
-    console.log('portfolios:', portfolio)
+    // console.log('portfolios:', portfolio)
 
     return (
         <>
@@ -33,20 +29,34 @@ function Profile(){
                 </div>
 
                 <div className='userInfo__details'>
-                    <h1>{sessionUser.firstname} {sessionUser.lastname}</h1>
-                    <h3>{sessionUser.username}</h3>
-                    <h4>{sessionUser.email}</h4>
+                    <h1 className='profile__name-display'>Hello! {sessionUser.firstname} {sessionUser.lastname}</h1>
+                    
+                    <div className='usrInfo__field'>
+                        <p>username: </p>
+                        <p className='profile__username-display'>{sessionUser.username}</p>
+                    </div>
+                    
+                    
+                    <div className='usrInfo__field'>
+                        <p>email: </p>
+                        <p className='usr__email'>{sessionUser.email}</p>
+                    </div>
                 </div>
 
             </div>
+            <h1 className='profile__label-balance'>Portfolio Balance Summary</h1>
             <div className='balanceSummary__container'>
                 {portfolios?.map((portfolio) => (
                     <>
-                    {/* <h1 className='bs__label'>Account summary</h1> */}
-                    <p className='bs__label'>{portfolio.name}</p>
-                    <p className='bs__label'>{portfolio.current_cash_balance}</p>
+                        <div className='profile__datarow'> 
+                            <div className='profile__port-name'>
+                                <p className='bs__label'>{portfolio.name}</p>
+                            </div>
+                            <div className='profile__port-balance'>
+                                <p className='bs__label'>{portfolio.current_cash_balance}</p>
+                            </div>
+                        </div>
                     </>
-                    // <div className='bs__portfolio-row'></div>
                 ))}
             </div>
 

@@ -18,7 +18,6 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      console.log('username = ', username, ' email = ', email, ' password = ', password)
       const data = await dispatch(signUp(username, email, password, firstName, lastName));
       if (data) {
         setErrors(data)
@@ -144,7 +143,7 @@ const SignUpForm = () => {
         </form>
         <div className='login__txt-container'>
           <p className='login__txt'>Don't have an account? Click <a className='link__singup' href='/singup'>Here </a> 
-           to sign up!</p>
+           to log in!</p>
         </div>
       </div>
     </div>

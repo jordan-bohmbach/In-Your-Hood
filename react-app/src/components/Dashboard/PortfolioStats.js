@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { getPortfolios } from '../../store/portfolio'
 import Charts from './Chart.js'
 import './Dashboard.css'
@@ -33,10 +32,7 @@ function PortfolioStats(){
     }
 
     const changePortfolio = (id) => {
-        console.log('portfolios = ', portfolios)
-        console.log('id = ', id)
-        setPortfolio(portfolios?.filter(portfolio=> portfolio.id == id)[0])
-        console.log('selector changes the portfolio to ', portfolio)
+        setPortfolio(portfolios?.filter(portfolio=> portfolio.id === id)[0])
     }
     
     return (
