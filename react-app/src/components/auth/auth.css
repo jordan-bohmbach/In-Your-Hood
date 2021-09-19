@@ -113,3 +113,46 @@
     background-size: 100% 100%; 
     border-radius:30px;
 }
+
+
+.signup__form-container{
+    width: 350px;
+    position: absolute;
+    right:200px;;
+    top:150px;
+    height: 700px;
+    background-color:white;
+    border-radius:30px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+
+}
+
+.signup__form{
+    height:400px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    width:300px;
+}
+
+.signupform__welcome-top{
+    width:300px;
+    position: relative;
+    bottom:40px;;
+    height: 120px;
+    background-image:url('./welcome_sign.png');
+    background-size: 100% 100%; 
+
+}
+
+.signup{
+    background-color:#5E9771;
+    border:2px solid #5E9771;
+    color:white;
+    margin-top:10px;
+}
+
