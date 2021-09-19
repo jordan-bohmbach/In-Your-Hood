@@ -28,7 +28,7 @@ function Footer(){
 
             <div className='ft__info-card'>
                 {creators.map((person) => (
-                    <div className='personal__info'>
+                    <div className='personal__info' key={person.name}>
                         <h2>{person.name}</h2>
                         <a href={person.Github}><img className='tag' src="https://img.icons8.com/ios/50/000000/github--v1.png" alt="GithubImage"/></a>
                         <a href={person.Linkedin}><img className='tag' src="https://img.icons8.com/ios/50/000000/linkedin.png" alt="LinkedinImage"/></a>

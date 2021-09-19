@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 // import { useParams } from 'react-router';
-import { getWatchlists, createOneWatchlist, updateWatchlist, deleteWatchlist } from '../../store/watchlist';
+import { getWatchlists, deleteWatchlist } from '../../store/watchlist';
 
 import './StaticWatchList.css'
 
@@ -10,10 +10,9 @@ function StaticWatchlist() {
     const watchlists = useSelector((state) => Object.values(state.watchlists))
     // const session = useSelector((state) => state.session)
     const [watchlistName, setWatchlistName] = useState('TechWatch')
-    console.log('watchlists = ',watchlists)
-    console.log('watchlistName = ',watchlistName)
+
     const myWatchList = watchlists.filter(watchlist=> watchlist.name === watchlistName)
-    console.log('myWatchlist = ', myWatchList)
+
     useEffect(() => {
         dispatch(getWatchlists());
     }, [dispatch]);
@@ -26,7 +25,6 @@ function StaticWatchlist() {
 
     
     const deleteWatchlistItem = (ticker) => {
-        console.log('splicing out index : ', myWatchList[0].stocks.indexOf(ticker))
         myWatchList[0].stocks.splice(myWatchList[0].stocks.indexOf(ticker))
     }
 
@@ -53,7 +51,7 @@ function StaticWatchlist() {
 
                 {myWatchList[0]?.stocks?.map((stock, index) => (
                     
-                    <div className='data__row'> 
+                    <div className='data__row' key={index}> 
                         <a className='stock__link' href={`/stock/${stock}`}><p>{stock}</p></a>
                         <div className='buttons'>
                             <button className='buttons' className="deleteWatchlist" onClick={(e)=>deleteWatchlistItem(stock)}><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png" /></button>

@@ -26,6 +26,11 @@
     z-index: 1;
 }
 
+.logo > a > img {
+    border-radius: 20px;
+}
+
+
 
 .head__search-bar{
     position:absolute;

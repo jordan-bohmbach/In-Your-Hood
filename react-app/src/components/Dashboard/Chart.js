@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { LineChart } from 'react-chartkick'
 import 'chartkick/chart.js'
 
@@ -8,72 +8,49 @@ import 'chartkick/chart.js'
 import { getPortfolios } from '../../store/portfolio'
 import PortfolioStock from './PortfolioStock'
 
-function Charts({portfolioName}) {
-
+function Charts({portfolio}) {
     const dispatch = useDispatch()
-    const portfolios = useSelector((state) => Object.values(state.portfolios))
-    const session = useSelector((state) => state.session)
-    // const [count, setCount] = useState(0)
-    //const [dataLoaded, setDataLoaded] = useState(false)
-    const [dataLoaded, setDataLoaded] = useState(true)
+    // const currentUser = useSelector((state) => state.session).user
+    // const [dataLoaded, setDataLoaded] = useState(true)
     const [finalDataObject, setFinalDataObject] = useState({})
     const [tickerArray, setTickerArray] = useState([])
 
     useEffect(() => {
         dispatch(getPortfolios())
-    }, [dispatch, portfolioName])
+    }, [dispatch, portfolio])
 
-    let myTickers = new Set()
-
-    const getTickersInPortfolio = (trades) => {
-        trades?.forEach(trade => myTickers.add(trade.ticker))
-        console.log('mytickers = ', myTickers)
-        return Array.from(myTickers)
-    }
-
-    
-    
-    const currentUser = session.user
-    // const currentDate = new Date()
-    
-    const userPortfolio = portfolios.filter((portfolio) =>  portfolio.owner_id === currentUser.id && portfolio.name === portfolioName)[0]
-    console.log('userPortfolio = ', userPortfolio)
-    useEffect(()=> {
-        setTickerArray(Array.from(getTickersInPortfolio(userPortfolio?.trades)))
-    },[userPortfolio?.trades])
-
-    const tickerData ={'AAPL': ''}
+    // const tickerData ={'AAPL': ''}
     // let tickerSet = new Set()
 
-    let count = 0
-    const loadTickers = () => {
+    // let count = 0
+    // const loadTickers = () => {
 
-        if (count < userPortfolio?.trades.length-1) {
-            const url = `https://finnhub.io/api/v1/stock/candle?symbol=${userPortfolio.trades[count].ticker}&resolution=D&from=${Math.round((new Date()) / 1000) - (364 * 24 * 60 * 60)}&to=${Math.round(new Date() / 1000)}&token=c4uiisiad3ie1t1fvu90`
-            fetch(url)
-                .then((res) => res.json())
-                .then((res) => tickerData[userPortfolio.trades[count].ticker] = res)
-            cleandata()
-            cleandata()
-            cleandata()
-            count++
-        } else {
-            setDataLoaded(true)
-        }
+    //     if (count < portfolio?.trades.length-1) {
+    //         const url = `https://finnhub.io/api/v1/stock/candle?symbol=${portfolio.trades[count].ticker}&resolution=D&from=${Math.round((new Date()) / 1000) - (364 * 24 * 60 * 60)}&to=${Math.round(new Date() / 1000)}&token=c4uiisiad3ie1t1fvu90`
+    //         fetch(url)
+    //             .then((res) => res.json())
+    //             .then((res) => tickerData[portfolio.trades[count].ticker] = res)
+    //         cleandata()
+    //         cleandata()
+    //         cleandata()
+    //         count++
+    //     } else {
+    //         setDataLoaded(true)
+    //     }
 
-    }
+    // }
 
-    const cleandata = () => {
-        for (let key in tickerData){
-            if(tickerData[key].s !== 'ok') {
-                const url = `https://finnhub.io/api/v1/stock/candle?symbol=${key}&resolution=D&from=${Math.round((new Date()) / 1000) - (364 * 24 * 60 * 60)}&to=${Math.round(new Date() / 1000)}&token=c4uiisiad3ie1t1fvu90`
-                fetch(url)
-                    .then((res) => res.json())
-                    .then((res) => tickerData[key] = res)
-            }
-        }
-        // console.log('the final data object is ', tickerData)
-    }
+    // const cleandata = () => {
+    //     for (let key in tickerData){
+    //         if(tickerData[key].s !== 'ok') {
+    //             const url = `https://finnhub.io/api/v1/stock/candle?symbol=${key}&resolution=D&from=${Math.round((new Date()) / 1000) - (364 * 24 * 60 * 60)}&to=${Math.round(new Date() / 1000)}&token=c4uiisiad3ie1t1fvu90`
+    //             fetch(url)
+    //                 .then((res) => res.json())
+    //                 .then((res) => tickerData[key] = res)
+    //         }
+    //     }
+    //     // console.log('the final data object is ', tickerData)
+    // }
 
     // useEffect(()=>{
     //     const interval = setInterval(loadTickers, 200);
@@ -84,7 +61,7 @@ function Charts({portfolioName}) {
 
 
     const portfolioBalanceHistory = {}
-    let runningDate = new Date(Date.parse(userPortfolio?.createdat))
+    let runningDate = new Date(Date.parse(portfolio?.createdat))
 
     const dateToString = (date) => `${(date.getFullYear())}-${date.getMonth() + 1}-${date.getDate()}`
     const getPreviousDayDate = date => new Date(date.getTime() - (60*24*60000))
@@ -93,8 +70,8 @@ function Charts({portfolioName}) {
     let trades
 
     const balanceScraper = () => {
-        trades = userPortfolio?.trades
-        portfolioBalanceHistory[dateToString(runningDate)] = userPortfolio?.starting_cash_balance
+        trades = portfolio?.trades
+        portfolioBalanceHistory[dateToString(runningDate)] = portfolio?.starting_cash_balance
         // console.log('trades are', trades)
         const today = new Date()
         let pastTradeCount = 0
@@ -129,12 +106,19 @@ function Charts({portfolioName}) {
 
     useEffect(()=>{
         balanceScraper()
-    }, [dataLoaded, portfolioName])
+    }, [portfolio])
 
-
-
-
-    // console.log('portfolioBalanceHistory = ', portfolioBalanceHistory)
+    useEffect(()=> {
+        let newArr = []
+        let tickerSet = new Set()
+        portfolio.trades.forEach(trade=> {
+            if(!tickerSet.has(trade.ticker)){
+                tickerSet.add(trade.ticker)
+                newArr.push(trade.ticker)
+            }
+        })
+        setTickerArray(newArr)
+    }, [portfolio])
 
 
 
@@ -142,15 +126,15 @@ function Charts({portfolioName}) {
 
         <>
             <div className='chart-area'>
-                {finalDataObject && <LineChart data={finalDataObject} />}
+                {finalDataObject ? <LineChart data={finalDataObject} /> : ''}
 
             </div>
             <div className='dashboard-stock-section'>
-                <div className='stock-list-header'>{portfolioName}</div>
+                <div className='stock-list-header'>{portfolio?.name}</div>
                 <div className='stock-list-header'>Stocks</div>
                 <div className='stock-list'>
-                    {tickerArray.map(ticker=> (
-                        <PortfolioStock ticker={ticker} />
+                    {tickerArray?.map(ticker=> (
+                        <PortfolioStock ticker={ticker} key={ticker}/>
                     ))}
                 </div>
             </div>

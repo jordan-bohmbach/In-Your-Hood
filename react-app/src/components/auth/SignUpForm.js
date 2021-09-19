@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
-import './Auth.css'
+import './auth.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
@@ -16,7 +18,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password, firstName, lastName));
       if (data) {
         setErrors(data)
       }
@@ -39,6 +41,14 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
+  const updateFirstName = e => {
+    setFirstName(e.target.value)
+  }
+
+  const updateLastName = e => {
+    setLastName(e.target.value)
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
@@ -46,6 +56,10 @@ const SignUpForm = () => {
   const reset = () => {
     setEmail('')
     setPassword('')
+    setUsername('')
+    setRepeatPassword('')
+    setFirstName('')
+    setLastName('')
   }
 
 
@@ -84,6 +98,26 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div className='login__field'>
+            <label className='login__inputFiled'>First Name</label>
+            <input
+              type='text'
+              name='username'
+              onChange={updateFirstName}
+              value={firstName}
+              className='login__input'
+            ></input>
+          </div>
+          <div className='login__field'>
+            <label className='login__inputFiled'>Last Name</label>
+            <input
+              type='text'
+              name='username'
+              onChange={updateLastName}
+              value={lastName}
+              className='login__input'
+            ></input>
+          </div>
+          <div className='login__field'>
             <label className='login__inputFiled'>Password</label>
             <input
               type='password'
@@ -105,7 +139,7 @@ const SignUpForm = () => {
             ></input>
           </div>
           <button className='login__buttons signup' type='submit'>Sign Up</button>
-          <button className='login__buttons cancel' type='reset' onClick={reset}>Cancel</button>
+          <button className='login__buttons cancel'onClick={reset}>Cancel</button>
         </form>
         <div className='login__txt-container'>
           <p className='login__txt'>Don't have an account? Click <a className='link__singup' href='/singup'>Here </a> 
