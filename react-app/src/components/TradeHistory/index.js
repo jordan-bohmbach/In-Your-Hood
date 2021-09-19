@@ -4,7 +4,6 @@ import { getPortfolios } from '../../store/portfolio'
 import { useParams } from 'react-router'
 
 import './TradeHistory.css'
-import Header from '../Header'
 import Footer from '../Footer'
 import PortfolioStatsChart from './PortfolioStatsChart'
 // import PortfolioStats from '../Dashboard/PortfolioStats'
@@ -28,11 +27,6 @@ function TradeHistory(){
     }, [dispatch])
 
     const trades = currentPort[0]?.trades
-
-
-    console.log(`trades:`, trades)
-
-
 
     return(
         <>

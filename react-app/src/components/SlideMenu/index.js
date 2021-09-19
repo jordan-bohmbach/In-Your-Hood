@@ -5,7 +5,6 @@ import './SlideMenu.css'
 function SlideMenu(){
 
     const menuButton = document.getElementById('opener')
-    console.log(`*****`,menuButton)
     
     menuButton.addEventListener('click', function() {
         const menu = document.getElementById('menu')
