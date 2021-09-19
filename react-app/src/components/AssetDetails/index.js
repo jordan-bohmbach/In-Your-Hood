@@ -1,8 +1,6 @@
 import './AssetDetails.css'
 import StockChart from './StockChart.js';
-import Header from '../Header';
 import Footer from '../Footer';
-import Watchlist from '../Watchlist'
 import IndividualStockNews from './IndividualStockNews'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
@@ -23,7 +21,7 @@ function AssetDetails(){
 
         if(companyOverview?.symbol !== ticker) getCompanyOverview(ticker)
 
-    }, [ticker])
+    }, [ticker, basicFinancials?.ticker, companyOverview?.symbol, companyProfile?.ticker])
 
     const updateExecutionPrice = (ticker) => {
         const url = `https://finnhub.io/api/v1//quote?symbol=${ticker}&token=c4uiisiad3ie1t1fvu90`
@@ -68,17 +66,17 @@ function AssetDetails(){
                     <h1 className='si__label'>Statistics</h1>
                     <div className='si__stats'>
                         <div className='si__stats-location'>
-                            <img className='stats__icon'src="https://img.icons8.com/ios-glyphs/30/000000/worldwide-location.png"/>
+                            <img className='stats__icon'src="https://img.icons8.com/ios-glyphs/30/000000/worldwide-location.png" alt='not found'/>
                             <h3> Location: {companyProfile?.country}</h3>
                         </div>
                     
                         <div className='si__stats-exchange'>
-                            <img className='stats__icon' src="https://img.icons8.com/ios-filled/50/000000/exchange.png"/>
+                            <img className='stats__icon' src="https://img.icons8.com/ios-filled/50/000000/exchange.png" alt='not found'/>
                             <h3>Exchange : {companyProfile?.exchange}</h3>
                         </div>
                         
                         <div className='si__stats-IPO'>
-                            <img className='stats__icon' src="https://img.icons8.com/ios/50/000000/calendar--v1.png"/>
+                            <img className='stats__icon' src="https://img.icons8.com/ios/50/000000/calendar--v1.png" alt='not found'/>
                             <h3>IPO Date : {companyProfile?.ipo}</h3>
                         </div>
                         

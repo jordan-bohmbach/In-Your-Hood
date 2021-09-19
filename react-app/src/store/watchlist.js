@@ -27,7 +27,6 @@ const remove = (watchlistId) => ({
 export const getWatchlists = () => async (dispatch) => {
     const response = await fetch(`/api/watchlists`);
     const watchlistList = await response.json()
-    console.log('watchlistList = ', watchlistList)
     dispatch(loadWatchlists(watchlistList))
 }
 
@@ -80,7 +79,6 @@ export const deleteWatchlist = watchlistId => async dispatch => {
 export default function watchlistReducer(state = {}, action) {
     switch (action.type) {
         case LOAD_WATCHLISTS:
-            console.log(action)
             const newWatchlists = {}
             action['watchlists'].watchlists.forEach(watchlist => {
                 newWatchlists[watchlist.id] = watchlist;

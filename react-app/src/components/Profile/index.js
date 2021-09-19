@@ -7,23 +7,19 @@ import {getPortfolios} from '../../store/portfolio'
 
 function Profile(){
     const dispatch = useDispatch();
-    // const usernames = useSelector((state) => Object.values(state.usernames));
-    // const username = useSelector((state) => Object.values(state.usernames));
-    // const email = useSelector((state) => Object.values(state.email));
 
     const sessionUser = useSelector(state => state.session.user)
     const portfolios = useSelector((state) => Object.values(state.portfolios))
-    const portfolio = useSelector((state) =>Object.values(state.portfolios))
 
-    const usrPorts = portfolios.filter((port) =>  port.owner_id === sessionUser.id)
+    // const usrPorts = portfolios.filter((port) =>  port.owner_id === sessionUser.id)
 
     useEffect(() => {
         dispatch(getPortfolios())
     }, [dispatch])
 
-    const trades = usrPorts[0]?.portfolios
+    // const trades = usrPorts[0]?.portfolios
 
-    console.log('portfolios:', portfolio)
+    // console.log('portfolios:', portfolio)
 
     return (
         <>
@@ -41,11 +37,11 @@ function Profile(){
             </div>
             <div className='balanceSummary__container'>
                 {portfolios?.map((portfolio) => (
-                    <>
+                    <div key={portfolio.id}>
                     {/* <h1 className='bs__label'>Account summary</h1> */}
-                    <p className='bs__label'>{portfolio.name}</p>
-                    <p className='bs__label'>{portfolio.current_cash_balance}</p>
-                    </>
+                        <p className='bs__label'>{portfolio.name}</p>
+                        <p className='bs__label'>{portfolio.current_cash_balance}</p>
+                    </div>
                     // <div className='bs__portfolio-row'></div>
                 ))}
             </div>
