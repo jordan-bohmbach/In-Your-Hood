@@ -1,7 +1,8 @@
 .userInfo__container{
     height:400px;
     width: 70%;
-    /* border: 3px solid red; */
+    border: 3px solid #5E9771;
+    box-shadow: 0 0 5px 5px #97B690 ;
     margin-top: 5%;
     margin-left:15%;
     display:flex;
@@ -75,6 +76,10 @@
     display:flex;
     justify-content: center; 
     align-items:center;
+    border-top:3px solid #5E9771;
+    border-left:3px solid #5E9771;
+    border-right: 3px solid #5E9771;
+
 
 
 }
