@@ -8,7 +8,6 @@ import './StaticWatchList.css'
 function StaticWatchlist() {
     const dispatch = useDispatch()
     const watchlists = useSelector((state) => Object.values(state.watchlists))
-    // const session = useSelector((state) => state.session)
     const [watchlistName, setWatchlistName] = useState('TechWatch')
 
     const myWatchList = watchlists.filter(watchlist=> watchlist.name === watchlistName)
