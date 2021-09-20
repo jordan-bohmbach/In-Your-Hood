@@ -44,7 +44,7 @@
     right:0;
     border: 3px solid green;
     margin-top:240px;
-    
+
 }
 
 
@@ -69,7 +69,7 @@
     /* border: 2px solid purple; */
     height: 330px;
     background-color: white;
-    
+
 }
 
 .tradeHistory__link{
@@ -92,7 +92,7 @@
 .port__toggle{
     font-size:40px;
     display:flex;
-    
+
 
 }
 
@@ -106,18 +106,18 @@
 }
 
 .create-watchlist-form {
-   
- 
+
+
     border: 3px solid black;
     border-radius: 30px;
-  
+
     padding: 20px;
     width: 400px;
     background-color:white;
     top:82%;
     height:260px;
 
-} 
+}
 
 .newPort__label{
     display: flex;
@@ -125,7 +125,7 @@
 }
 
 .newPort__input{
-   
+
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -155,7 +155,7 @@
     height: 750px;
     background-color: white;
     overflow: auto;
-    
+
 }
 
 .portfolio-stock {
@@ -175,7 +175,7 @@
 .cancel-portfolio-button{
     text-decoration: none;
     color:black;
-    
+
 }
 
 .cancel-watchlist-button{
@@ -190,7 +190,7 @@
     display: flex;
     justify-content: center;
     margin-top:5px;
-    background: red 
+    background: red
 }
 
 
@@ -206,7 +206,7 @@
     font-size:20px;
     right:800px;
     background-color:red;
-    border:3px solid red; 
+    border:3px solid red;
     border-radius: 10px;
 }
 
@@ -222,5 +222,20 @@
 
 .create__watchlist-container{
     position: relative;
-    
+
+}
+
+.newPort__submit{
+    background-color: #5E9771;
+    border: 2px solid #5E9771;
+    color: white; 
+    border-radius: 8px;
+}
+
+.newWatchlist__submit{
+    background-color: #5E9771;
+    border: 2px solid #5E9771;
+    color: white;
+    border-radius: 8px;
+
 }

@@ -66,7 +66,7 @@ const SignUpForm = () => {
   return (
     <div className='login__bkg-1'>
     <div className='login__logo-container'>
-    
+
     </div>
       <div className='signup__form-container'>
       <div className='signupform__welcome-top'></div>
@@ -142,7 +142,7 @@ const SignUpForm = () => {
           <button className='login__buttons cancel'onClick={reset}>Cancel</button>
         </form>
         <div className='login__txt-container'>
-          <p className='login__txt'>Don't have an account? Click <a className='link__singup' href='/singup'>Here </a> 
+          <p className='login__txt'>Don't have an account? Click <a className='link__singup' href='/singup'>Here </a>
            to log in!</p>
         </div>
       </div>
