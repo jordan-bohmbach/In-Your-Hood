@@ -8,7 +8,7 @@
     background-image:  url('./bkg_layer-1.png');
     background-repeat: no-repeat;
     background-size:100% 100%;
-    
+
 }
 
 
@@ -39,7 +39,7 @@
 .login__inputFiled{
     font-size:22px;
     margin-bottom:20px;
-   
+
 }
 
 .login__input{
@@ -53,11 +53,11 @@
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-    
+
 }
 
 .login__txt-container{
-    position:relative; 
+    position:relative;
     top: 60px;
     font-size:14px;
 }
@@ -73,7 +73,7 @@
     bottom:30px;;
     height: 120px;
     background-image:url('./welcome_back_sign.png');
-    background-size: 100% 100%; 
+    background-size: 100% 100%;
 
 }
 
@@ -98,7 +98,7 @@
 
 
 .login__errors{
-    color: red; 
+    color: red;
     font-weight: bold;
 
 }
@@ -110,7 +110,7 @@
     top: 20%;
     left: 5%;
     background-image: url('./Invest_Locally_logo.png');
-    background-size: 100% 100%; 
+    background-size: 100% 100%;
     border-radius:30px;
 }
 
@@ -145,7 +145,7 @@
     bottom:40px;;
     height: 120px;
     background-image:url('./welcome_sign.png');
-    background-size: 100% 100%; 
+    background-size: 100% 100%;
 
 }
 
@@ -155,4 +155,3 @@
     color:white;
     margin-top:10px;
 }
-
