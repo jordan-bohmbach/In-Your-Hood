@@ -38,7 +38,7 @@ const CreateWatchlistForm = () => {
 
 
 
-    
+
     return (
         <div className='create__watchlist-container'>
             <form
@@ -65,7 +65,7 @@ const CreateWatchlistForm = () => {
                     />
                 </label>
                 <div className='watchlist__buttons'>
-                    <button
+                    <button className="newWatchlist__submit"
                         type="submit"
                     >
                         Create Watchlist

@@ -75,6 +75,7 @@ const CreatePortfolioForm = () => {
                     />
                 </label>
                 <button
+                    className="newPort__submit"
                     type="submit"
                 >
                     Create Portfolio
