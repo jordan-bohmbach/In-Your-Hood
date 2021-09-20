@@ -15,7 +15,7 @@
 .watchlist-container {
     display:  flex;
     position: absolute;
-    top: 300px;
+    top: 200px;
     right: 100px;
     flex-direction: column;
     border: 3px solid black;
@@ -27,6 +27,12 @@
     overflow: auto;
 }
 
+.deleteWatchlist_Btn{
+    background-color: red;
+    border:2px solid red;
+    color: white;
+    border-radius: 8px;
+}
 
 
 
@@ -37,7 +43,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom:10px;
-    
+
 }
 
 .buttons:hover{
