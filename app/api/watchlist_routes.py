@@ -6,7 +6,7 @@ from datetime import datetime
 watchlist_routes = Blueprint('watchlists', __name__)
 
 
-@watchlist_routes.route('/')
+@watchlist_routes.route('')
 def watchlists():
     watchlists = Watchlist.query.all()
     watchlistStocks = WatchlistStock.query.all()

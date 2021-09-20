@@ -6,10 +6,15 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import NewTradeForm from '../NewTradeForm/NewTradeForm';
 import { useDispatch, useSelector } from 'react-redux'
+import { getWatchlists } from '../../store/watchlist';
 
 function AssetDetails(){
 
-
+    const dispatch = useDispatch()
+    
+    useEffect(()=>{
+        dispatch(getWatchlists)
+    }, [dispatch])
 
 
     const portfolios = useSelector((state) => Object.values(state.portfolios))

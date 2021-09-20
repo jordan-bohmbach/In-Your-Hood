@@ -18,7 +18,7 @@ function PortfolioStatsChart({trades}){
         return res
     }
 
-    console.log(`trade history chart`, calculateDollarAmount(values))
+    // console.log(`trade history chart`, calculateDollarAmount(values))
 
     return(
         <PieChart data={calculateDollarAmount(values)} />
