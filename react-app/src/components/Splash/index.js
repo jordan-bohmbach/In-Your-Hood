@@ -137,7 +137,7 @@ function Splash(){
                 <p className='sp__l-txt'>
                 Community is important, with <strong className='name__spl'>In Your Hood</strong> you can be directly involved with
                 improving your community. Currently your community is your nation, as stock information covers companies based in the United States.
-                In future updates, users will be able to filter search results based on state and region.
+                In future updates, our users will be able to filter search results based on state and region.
                 </p>
 
             </div>
