@@ -22,7 +22,7 @@ function StaticWatchlist() {
 
 
 
-    
+
     const deleteWatchlistItem = (ticker) => {
         myWatchList[0].stocks.splice(myWatchList[0].stocks.indexOf(ticker))
     }
@@ -49,15 +49,15 @@ function StaticWatchlist() {
 
 
                 {myWatchList[0]?.stocks?.map((stock, index) => (
-                    
-                    <div className='data__row' key={index}> 
+
+                    <div className='data__row' key={index}>
                         <a className='stock__link' href={`/stock/${stock}`}><p>{stock}</p></a>
                         <div className='buttons'>
                             <button className='buttons' className="deleteWatchlist" onClick={(e)=>deleteWatchlistItem(stock)}><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png" /></button>
                         </div>
                     </div>
                 ))}
-                <button onClick={()=>handleDelete(myWatchList[0]?.id)}>Delete Watchlist</button>
+                <button className="deleteWatchlist_Btn"onClick={()=>handleDelete(myWatchList[0]?.id)}>Delete Watchlist</button>
 
             </div>
         </div>
