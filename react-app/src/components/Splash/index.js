@@ -24,11 +24,16 @@ function Splash(){
 
             <div className='sp__txt-top'>
                 <p className='sp__text-1'>
-                "This application will allow a user to buy and sell stocks,
-                manage watchlists and watch live stock prices. This application
-                will be simple and easy to navigate. We are hoping that
-                people will enjoy the website that we have created and
-                will attract more users to use our website."
+                In Your Hood offers a reactive and simple way to 
+                invest in your community. 
+                </p>
+                <p className='sp__text-1'>
+                Buy and sell stocks, manage watchlists 
+                and watch live stock prices. 
+                </p>
+                <p  className='sp__text-1'>
+                Live Trading View charts offer ample amounts of informaiton and indecators
+
                 </p>
                 <button className='sp__demo-button' onClick={loginDemo}> Demo</button>
             </div>
@@ -41,11 +46,11 @@ function Splash(){
             </div>
             <div className='sp__left-text'>
                 <p className='sp__l-txt'>
-                "We have instilled a search feature that will allow
-                people to search stocks by state/community. This
-                will allow the user to be able to invest in their
-                own community."
+                Community is important, with <strong className='name__spl'>In Your Hood</strong> you can be directly involved with 
+                improving your community. Currently your community is your nation as stock information covers companies based in the United States. 
+                In a future updates users will be able to filter search results based on state and region. 
                 </p>
+            
             </div>
 
 
@@ -55,12 +60,9 @@ function Splash(){
             </div>
             <div className='sp__right-text'>
                 <p className='sp__2-txt'>
-                "We have added live charts to our website. This
-                will allow users to see the current price trend of
-                the stocks that they are watching or are intending
-                to buy or sell. This will help the user determine
-                when they should buy or sell stocks that they are
-                interested in."
+                Intrograting live Trading View stock charts we offer users the ability 
+                to make the best concise and well infomrmed trades. Charts are accompanied by 
+                a live news feed and a breif over view of the stocks general information.  
                 </p>
             </div>
 

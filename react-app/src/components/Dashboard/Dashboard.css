@@ -16,11 +16,12 @@
 .dash__portfilioStats{
     height: 467px;
     width: 50%;
-    border: 3px solid black;
+    border: 3px solid #5E9771;
     margin-left: 200px;
     margin-top: 150px;
     border-radius:30px;
     overflow:hidden;
+    box-shadow: 0 0 5px 5px #97B690 ;
 }
 
 
