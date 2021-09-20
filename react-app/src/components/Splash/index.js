@@ -1,8 +1,17 @@
 import './Splash.css'
-
-
+import { login } from '../../store/session';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 
 function Splash(){
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const loginDemo = async (e) => {
+
+        e.preventDefault();
+        await dispatch(login('demo@aa.io', 'password'));
+        history.push('/dashboard')
+    };
 
     return (
         <>
@@ -21,7 +30,7 @@ function Splash(){
                 people will enjoy the website that we have created and
                 will attract more users to use our website."
                 </p>
-                <button className='sp__demo-button'> Demo </button>
+                <button className='sp__demo-button' onClick={loginDemo}> Demo</button>
             </div>
 
 
